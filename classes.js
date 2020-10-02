@@ -34,3 +34,9 @@ class Street{
         this.type = "Street";
     }
 }
+
+let test = [
+    [new House(), new Street(), new House()],
+    [undefined, new Street(), undefined],
+    [undefined, new Street(), new Workplace]
+]
