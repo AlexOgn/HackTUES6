@@ -24,7 +24,7 @@ class Workplace{
         this.workers = 0;
         this.level = 1;
         this.x = this.y = 0;
-        this.type = "Workplace";
+        this.type = "Factory";
     }
 }
 

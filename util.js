@@ -1,2 +1,10 @@
 const clone = (x) => JSON.parse(JSON.stringify(x));
-const compare = (a, b) => JSON.stringify(a) == JSON.stringify(b);
+const deepqual = (a, b) => JSON.stringify(a) == JSON.stringify(b);
+const undefined_member = (obj, ...members) => {
+    if(deepqual(members, [])) return obj;
+    let last_member = members.pop();
+    let parent = undefined_member(obj, ...members);
+    
+    if (parent === undefined) return undefined;
+    return parent[last_member];
+};
