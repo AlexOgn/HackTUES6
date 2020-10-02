@@ -2,9 +2,6 @@
 // индексите може да са отрицателни
 // src и dest са обекти
 // трябва да си имат х и y
-const clone = (x) => JSON.parse(JSON.stringify(x));
-const compare = (a, b) => JSON.stringify(a) == JSON.stringify(b);
-
 const pathfind = (city, src, dest) => {
     const add_pos = (a, b) => ({x: a.x + b.x, y: a.y + b.y});
     let bfsq = [];
