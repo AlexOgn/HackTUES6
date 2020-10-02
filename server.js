@@ -8,7 +8,7 @@ app.get('/', function(req, res) {
 });
 
 con = mysql.createConnection({
-    host: '192.168.0.104',
+    host: 'localhost',
     user: 'root',
     database: 'hacktues',
     password: 'рикосхет123321'
@@ -26,4 +26,4 @@ con.connect(function(err) {
 
 
 
-app.listen(3000);
+app.listen(8080);
