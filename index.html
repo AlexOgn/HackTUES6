@@ -7,10 +7,11 @@
       <script src="util.js"></script>
       <script src="classes.js"></script>
       <script src="pathfind.js"></script>
-      <title>Document</title>
+      <title>Svetofar!</title>
+      
   </head>
   <body>
-    <div id="crosswalk_editor_div">
+    <div id="crosswalk_editor_div" style="display: block;">
         <li class="way">
             up
         </li>
@@ -30,12 +31,10 @@
             right
         </li>
         <input class="time_setter" id="left" type="number">
-        <div>
-            
-            
-            
-        </div>
+        <br>
+        <input type="submit" onclick="document.getElementById('crosswalk_editor_div').style='display: none;';">
     </div>
+    
     <canvas id="game-canvas">
       <script src="game.js"></script>
     </canvas>
