@@ -3,19 +3,25 @@
     outline: 0;
     scrollbar-width: 0;
 }
-
-#crosswalk_editor_div{
-    position: relative;
-    background-color: lightgray;
-    width: 50%;
-    height: 50%;
+/*
+#traffic_editor_div{
+    z-index: 1;
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }
 
-
+.traffic_editor_main_text{
+  background-color: green;
+  padding: 10;
+  width: 80%;
+  border: 100px solid black;
+} 
+*/
 .time_setter{
     position: relative;
     left: 30%;
-
 }
 
 .direction{
