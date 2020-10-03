@@ -11,12 +11,14 @@ app.engine('hbs', exphbs({
     extname: '.hbs'
 }));
 
+app.use("/",express.static(__dirname + "/"));
+
 app.set('view engine', 'hbs');
 
 //пише в датабазата
-function sendData(username, score){
-    if(score==""){
-        score=0;
+function sendData(username, score) {
+    if (score == "") {
+        score = 0;
     }
     var sql = `INSERT INTO user (username, score) VALUES ("${username}", "${score}")`;
     con.query(sql, function (err, result) {
@@ -28,10 +30,10 @@ function getData(res) {
     con.query("SELECT * FROM user ORDER BY score DESC", function (err, result, fields) {
         if (err) throw err;
         console.log(result);
-        res.render(path.join(__dirname + '/views/layouts/main.hbs'), {data: result});
+        res.render(path.join(__dirname + '/views/layouts/main.hbs'), { data: result });
     });
 }
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     getData(res);
 });
 
@@ -44,7 +46,7 @@ app.get('/', function(req, res) {
 */
 
 //използваме bodyParser
-app.use(bodyParser.urlencoded({extended : true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
 /*
@@ -55,7 +57,7 @@ app.get('/leaders', function(req, res){
 */
 
 //post-ва резултати
-app.post('/leaderboard', (req, res) => {    
+app.post('/leaderboard', (req, res) => {
     let username = req.body.username;
     let score = req.body.score
     sendData(username, score);
@@ -72,7 +74,7 @@ con = mysql.createConnection({
 });
 
 //свързване с датабазата
-con.connect(function(err) {
+con.connect(function (err) {
     if (err) throw err;
     console.log("Connected");
 });
