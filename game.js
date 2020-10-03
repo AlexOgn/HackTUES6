@@ -1,16 +1,15 @@
 var game_canvas = document.getElementById("game_canvas");
-
-game_canvas.width = document.body.clientWidth;
-game_canvas.height = document.body.clientHeight;
-
+game_canvas.width = window.innerWidth;
+game_canvas.height = window.innerHeight;
 var game_ctx = game_canvas.getContext("2d");
 
 var game_mouse_x;
 var game_mouse_y;
 
-game_canvas.addEventListener("mousemove", (e) => {
-    game_mouse_x = e.layerX || e.offsetX;
-    game_mouse_y = e.layerY || e.offsetY;
+window.addEventListener("mousemove", (e) => {
+    let canvas_pos = document.getElementById("game_canvas").getBoundingClientRect();
+    game_mouse_x = e.clientX - canvas_pos.x;
+    game_mouse_y = e.clientY - canvas_pos.y;
 }); 
 
 const is_intersection = (map, y, x) => {
