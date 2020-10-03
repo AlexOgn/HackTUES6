@@ -1,0 +1,32 @@
+*{
+    outline: 0;
+    scrollbar-width: 0;
+}
+
+#crosswalk_editor_div{
+    position: relative;
+    background-color: lightgray;
+    width: 50%;
+    height: 50%;
+}
+
+
+.time_setter{
+    position: relative;
+    left: 30%;
+
+}
+
+.way{
+    width: 3%;
+    margin-left: 5%;
+    display: inline-block;
+    appearance: textfield;
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
