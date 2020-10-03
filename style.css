@@ -39,6 +39,7 @@
 }
 
 #traffic_editor_div{
+    display:none;
     z-index: 1;
     background-color: rgba(0,0,0,0.8);
     position: fixed;
@@ -47,9 +48,9 @@
 }
 
 #traffic_editor_main_text{
-  background-color: #5af046;
+  background-color: #fefefe;
   padding: 10;
-  width: 80%;
+  width: 30%;
 } 
 
 .time_setter{

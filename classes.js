@@ -16,8 +16,8 @@ class TrafficLight{
     config(){
         let top = document.getElementsByName("up")[0].value;
         let bottom = document.getElementsByName("down")[0].value;
-        let left = document.getElementsByName("left")[0].value;
         let right = document.getElementsByName("right")[0].value;
+        let left = document.getElementsByName("left")[0].value;
 
         this.sequence[0] = top;
         this.sequence[1] = bottom;
@@ -54,7 +54,7 @@ class Car{
 }
 
 let test = [
-    [new House(), new Street(), new House()],
-    [undefined, new Street(), undefined],
+    [new House(), new TrafficLight(), new House()],
+    [new TrafficLight(), new Street(), undefined],
     [undefined, new Street(), new Workplace()]
 ]
