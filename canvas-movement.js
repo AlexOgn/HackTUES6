@@ -3,7 +3,6 @@ let camera_move_multiplier = 50;
 function move_camera(x, y) {
     game_ctx.translate(x * camera_move_multiplier, y * camera_move_multiplier);
 }
-
 window.addEventListener('keydown', (e) => {
     switch (e.code) {
     case "ArrowLeft":

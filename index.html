@@ -25,10 +25,10 @@
     <div id= "counter" name="days"></div>
     
     <div id="arrows">
-          <input type="image" src="assets/arrow_right.png" width="48" height="48">
-          <input type="image" src="assets/arrow_left.png" width="48" height="48">
-          <input type="image" src="assets/arrow_up.png" width="48" height="48">
-          <input type="image" src="assets/arrow_down.png" width="48" height="48">
+          <input type="image" src="assets/arrow_right.png" width="48" height="48" onclick="move_camera(-1, 0)">
+          <input type="image" src="assets/arrow_left.png" width="48" height="48" onclick="move_camera(1, 0)">
+          <input type="image" src="assets/arrow_up.png" width="48" height="48" onclick="move_camera(0, -1)">
+          <input type="image" src="assets/arrow_down.png" width="48" height="48" onclick="move_camera(0, 1)">
       </div>
 
       <div id="buttons">
@@ -40,38 +40,38 @@
 
     </div>
 
-    <div id="traffic_editor_div" style="display: block;">
+    <div id="traffic_editor_div">
       <div id="traffic_editor_main_text">
         <li class="direction">
             up
         </li>
-        <input class="time_setter" id="up" type="text">
+        <input class="time_setter" id="up" type="text" name="up">
         <br>
 
         <li class="direction">
             down
         </li>
-        <input class="time_setter" id="down" type="number">
+        <input class="time_setter" id="down" type="number" name="down">
         <br>
 
         <li class="direction">
             left
         </li>
-        <input class="time_setter" id="right" type="number">
+        <input class="time_setter" id="right" type="number" name="right">
         <br>
 
         <li class="direction">
             right
         </li>
-        <input class="time_setter" id="left" type="number">
+        <input class="time_setter" id="left" type="number" name="left">
         <br>
 
-        <input type="submit" id="submit">
+        <input type="submit" id="submit" >
       </div>
     </div>
 
     <canvas id="game_canvas">
-      <script src="game.js"></script>
+    <script src="game.js"></script>
     </canvas>
 </body>
 </html>
