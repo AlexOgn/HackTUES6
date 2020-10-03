@@ -1,37 +1,32 @@
 
-#day_counter_box{
+#counter{
     text-align: center;
     float:right;
     background-color: LightGoldenRodYellow; 
     width: 6%; 
     border: 4px solid LightSalmon;
+    border-radius: 10px;
     padding: 15px; 
-    margin-top: 0.5%;
-    margin-right: -4px;
-}
-#money_counter_box{
-    text-align: center;
-    float:right; 
-    background-color: LightGoldenRodYellow; 
-    width: 6%; 
-    border: 4px solid LightSalmon; 
     margin-top: 0.5%;
     margin-right: 3px;
-    padding: 15px; 
 }
+
 #arrows{
     float:right;
     margin-top: 0.75%;
 }
+
 #buttons{
     float:left;
     margin-top: 0.5%;
 }
+
 #top_div{
     position: relative;
     width: 100%;
     height: 100px;
 }
+
 #game_canvas{
     margin: auto;
     position: relative;
@@ -42,7 +37,7 @@
     outline: 0;
     scrollbar-width: 0;
 }
-/*
+
 #traffic_editor_div{
     z-index: 1;
     background-color: rgba(0,0,0,0.8);
@@ -51,13 +46,12 @@
     height: 100%;
 }
 
-.traffic_editor_main_text{
-  background-color: green;
+#traffic_editor_main_text{
+  background-color: #5af046;
   padding: 10;
   width: 80%;
-  border: 100px solid black;
 } 
-*/
+
 .time_setter{
     position: relative;
     left: 30%;
