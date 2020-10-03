@@ -10,7 +10,7 @@ const pathfind = (city, src, dest) => {
         let front = bfsq.shift();
         let pos = front.pos;
         let path = [...front.path, pos];
-        if (undefined_member(city, pos.y, pos.x) === undefined) continue;
+        if (get_member(city, pos.y, pos.x) === undefined) continue;
 
         if (deepqual(pos, dest)) return path;
         if (!deepqual(pos,  src) && city[pos.y][pos.x].type == "Street");
