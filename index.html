@@ -26,17 +26,17 @@
     <div id= "counter" name="days"></div>
     
     <div id="arrows">
-          <input type="image" src="assets/arrow_right.png" width="48" height="48" onclick="move_camera(-1, 0)">
-          <input type="image" src="assets/arrow_left.png" width="48" height="48" onclick="move_camera(1, 0)">
-          <input type="image" src="assets/arrow_up.png" width="48" height="48" onclick="move_camera(0, -1)">
-          <input type="image" src="assets/arrow_down.png" width="48" height="48" onclick="move_camera(0, 1)">
+          <input class="arrow" type="image" src="assets/arrow_left.png" width="48" height="48" onclick="move_camera(-1, 0)">
+          <input class="arrow" type="image" src="assets/arrow_right.png" width="48" height="48" onclick="move_camera(1, 0)">
+          <input class="arrow" type="image" src="assets/arrow_up.png" width="48" height="48" onclick="move_camera(0, -1)">
+          <input class="arrow" type="image" src="assets/arrow_down.png" width="48" height="48" onclick="move_camera(0, 1)">
       </div>
 
       <div id="buttons">
-          <input type="image" src="assets/pause_button.png" width="48" height="48">
-          <input type="image" src="assets/play_button.png" width="48" height="48">
-          <input type="image" src="assets/double_speed_button.png" width="48" height="48">
-          <input type="image" src="assets/skip_buttton.png" width="48" height="48">
+          <input type="image" class="arrow" src="assets/pause_button.png" width="48" height="48">
+          <input type="image" class="arrow" src="assets/play_button.png" width="48" height="48">
+          <input type="image" class="arrow" src="assets/double_speed_button.png" width="48" height="48">
+          <input type="image" class="arrow" src="assets/skip_buttton.png" width="48" height="48">
       </div>
 
     </div>
@@ -70,9 +70,10 @@
         <input type="submit" id="submit" >
       </div>
     </div>
-
-    <canvas id="game_canvas">
-    <script src="game.js"></script>
-    </canvas>
+    <div style="height: 90%;">
+        <canvas id="game_canvas">
+        <script src="game.js"></script>
+        </canvas>
+    </div>
 </body>
 </html>
