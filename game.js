@@ -70,10 +70,15 @@ function get_map_element(MouseX, MouseY, game_map_element_width, game_map_elemen
     MouseX -= left_bar_width;
     MouseY -= top_bar_height;
 
-    result = [2]; //the first element hold the Y, the second X
+    result = [2]; //the first element holds the Y, the second X
     
     result[0] = Math.floor(MouseY/game_map_element_height);
     result[1] = Math.floor(MouseX/game_map_element_width);
 
     return result;
+}
+
+let submit = document.getElementById("submit");
+submit.onclick = function(){
+    document.getElementById("traffic_editor_div").style="display: none";
 }

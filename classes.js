@@ -2,7 +2,7 @@ class TrafficLight{
     constructor(){
         this.type = "TrafficLight";
         this.sequence = [1, 1, 1, 1]; 
-        //the number of people we let to cross the road in the directions"^", "<", ">", "V"
+        //the number of people we let to cross the road in the directions: "^", "V", ">", "<"
     }
 
 /*
@@ -14,15 +14,15 @@ class TrafficLight{
 
 */
     config(){
-        let top = document.getElementsByName("top")[0].value;
+        let top = document.getElementsByName("up")[0].value;
+        let bottom = document.getElementsByName("down")[0].value;
         let left = document.getElementsByName("left")[0].value;
         let right = document.getElementsByName("right")[0].value;
-        let bottom = document.getElementsByName("bottom")[0].value;
 
         this.sequence[0] = top;
-        this.sequence[1] = left;
+        this.sequence[1] = bottom;
         this.sequence[2] = right;
-        this.sequence[3] = bottom;
+        this.sequence[3] = left;
     }
 }
 
