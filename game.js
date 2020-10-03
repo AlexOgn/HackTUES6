@@ -85,9 +85,23 @@ function get_map_element(ctx, size){
     return {x:mapx, y:mapy};
 }
 
+var temp = new Object();
 
+function traffic_config(position){
+    if(get_member(test, position.y, position.x, "type") != "TrafficLight") return;
+    temp = position;
+    document.getElementById("traffic_editor_div").style="display:block";
+    document.getElementById("up").value = test[position.y][position.x].sequence[0];
+    document.getElementById("down").value = test[position.y][position.x].sequence[1];
+    document.getElementById("right").value = test[position.y][position.x].sequence[2];
+    document.getElementById("left").value = test[position.y][position.x].sequence[3];
+}
+
+game_canvas.addEventListener('click', () => traffic_config(get_map_element(game_ctx, 100)))
 
 let submit = document.getElementById("submit");
+
 submit.onclick = function(){
+    test[temp.y][temp.x].config();
     document.getElementById("traffic_editor_div").style="display: none";
 }
