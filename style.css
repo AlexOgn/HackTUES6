@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #day_counter_box{
     text-align: center;
     float:right;
@@ -35,7 +35,8 @@
 #game_canvas{
     margin: auto;
     position: relative;
-=======
+}
+
 *{
     outline: 0;
     scrollbar-width: 0;
@@ -67,5 +68,4 @@ input::-webkit-inner-spin-button {
 }
 input[type=number] {
   -moz-appearance: textfield;
->>>>>>> c0d1ffaabbdb6d5793306209d635734468195d54
 }
