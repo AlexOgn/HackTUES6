@@ -1,17 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="load-assets.js"></script>
-    <script src="util.js"></script>
-    <script src="classes.js"></script>
-    <script src="pathfind.js"></script>
-    <title>Document</title>
-</head>
-<body>
-  <canvas id="game-canvas">
-    <script src="game.js"></script>
-  </canvas>
-</body>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <script src="load-assets.js"></script>
+      <script src="util.js"></script>
+      <script src="classes.js"></script>
+      <script src="pathfind.js"></script>
+      <title>Document</title>
+  </head>
+  <body>
+    <div id="crosswalk_editor_div">
+        <li class="way">
+            up
+        </li>
+        <input class="time_setter" id="up" type="text">
+        <br>
+        <li class="way">
+            down
+        </li>
+        <input class="time_setter" id="down" type="number">
+        <br>
+        <li class="way">
+            left
+        </li>
+        <input class="time_setter" id="right" type="number">
+        <br>
+        <li class="way">
+            right
+        </li>
+        <input class="time_setter" id="left" type="number">
+        <div>
+            
+            
+            
+        </div>
+    </div>
+    <canvas id="game-canvas">
+      <script src="game.js"></script>
+    </canvas>
+  </body>
 </html>
