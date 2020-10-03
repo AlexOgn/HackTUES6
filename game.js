@@ -1,6 +1,11 @@
 var game_canvas = document.getElementById("game_canvas");
-//game_canvas.width = window.innerWidth / 2;
-//game_canvas.height = window.innerHeight / 2;
+
+canvas = document.getElementById("mainCanvas");
+canvas.width = document.body.clientWidth;
+canvas.height = document.body.clientHeight;
+canvasW = canvas.width;
+canvasH = canvas.height;
+
 var game_ctx = game_canvas.getContext("2d");
 
 var game_mouse_x;
