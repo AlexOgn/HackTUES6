@@ -1,10 +1,7 @@
 var game_canvas = document.getElementById("game_canvas");
 
-canvas = document.getElementById("mainCanvas");
-canvas.width = document.body.clientWidth;
-canvas.height = document.body.clientHeight;
-canvasW = canvas.width;
-canvasH = canvas.height;
+game_canvas.width = document.body.clientWidth;
+game_canvas.height = document.body.clientHeight;
 
 var game_ctx = game_canvas.getContext("2d");
 
