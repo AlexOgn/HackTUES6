@@ -3,6 +3,14 @@ game_canvas.width = window.innerWidth / 2;
 game_canvas.height = window.innerHeight / 2;
 var game_ctx = game_canvas.getContext("2d");
 
+var game_mouse_x;
+var game_mouse_y;
+
+game_canvas.addEventListener("mousemove", (e) => {
+    game_mouse_x = e.layerX | e.offsetX;
+    game_mouse_y = e.layerY | e.offsetY;
+}); 
+
 const is_intersection = (map, y, x) => {
     const can_connect = (diry, dirx) => (get_member(map, y + diry, x + dirx) !== undefined);
     let connections = 0;
@@ -58,25 +66,26 @@ const draw_map = (ctx, map, size) => {
 const redraw = () => {
     game_ctx.save();
     game_ctx.setTransform(1, 0, 0, 1, 0, 0);
-    //game_ctx.clearRect(0, 0, game_canvas.width, game_canvas.height);
+    game_ctx.clearRect(0, 0, game_canvas.width, game_canvas.height);
     game_ctx.restore();
     draw_map(game_ctx, test, 100);
     window.requestAnimationFrame(redraw);
 }
 redraw();
 
-function get_map_element(MouseX, MouseY, game_map_element_width, game_map_element_height, left_bar_width, top_bar_height){
+function get_map_element(canvas, ctx, size){
+    var matrix = ctx.getTransform();
+    var imatrix = matrix.invertSelf();
 
-    MouseX -= left_bar_width;
-    MouseY -= top_bar_height;
+    var x = game_mouse_x * imatrix.a + game_mouse_y * imatrix.c + imatrix.e;
+    var y = game_mouse_x * imatrix.b + game_mouse_y * imatrix.d + imatrix.f;
 
-    result = [2]; //the first element holds the Y, the second X
-    
-    result[0] = Math.floor(MouseY/game_map_element_height);
-    result[1] = Math.floor(MouseX/game_map_element_width);
-
-    return result;
+    var mapx = Math.floor(x / size);
+    var mapy = Math.floor(y / size);
+    return {x:mapx, y:mapy};
 }
+
+
 
 let submit = document.getElementById("submit");
 submit.onclick = function(){
