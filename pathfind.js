@@ -13,7 +13,7 @@ const pathfind = (city, src, dest) => {
         if (get_member(city, pos.y, pos.x) === undefined) continue;
 
         if (deepqual(pos, dest)) return path;
-        if (!deepqual(pos,  src) && city[pos.y][pos.x].type == "Street");
+        if (!deepqual(pos, src) && city[pos.y][pos.x].type != "Street") continue;
         bfsq.push({
             pos:add_pos(pos, {x: 1, y:0}),
             path:path

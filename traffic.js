@@ -25,29 +25,34 @@ const minipaths = {
     },
 }
 
-const = tick(map, carmap) => {
-    const bigcoords = (pos) => vec_floor(vec_div(u, 4));
-    const origin_smallcoords = (pos) => vec_mul(bigoocrds(pos), 4);
+const tick = (map, carmap) => {
+    const bigcoords = (pos) => vec_floor(vec_div(pos, 4));
+    const origin_smallcoords = (pos) => vec_mul(bigcoords(pos), 4);
     const rel_smallcoords = (pos) => vec_sub(pos, origin_smallcoords(pos));
-    const dir_to_member(v) {
+    const dir_to_member = (v) => {
         if(deepqual(v, {x:-1, y:0})) return "left";
         if(deepqual(v, {x:0, y:-1})) return "up";
         if(deepqual(v, {x:1, y:0})) return "right";
         if(deepqual(v, {x:0, y:1})) return "down";
     }
-    let next_carmap = [];
+    let next_carmap = clone(carmap);
     for (let i = 0; i < carmap.length; i++)
-        next_carmap[i] = [];
-    for (let i = 0; i < carmap.length; i++)
-        for (let j = 0; j < carmap[i].length; i++) {
-            if(carmap[i][j] !== undefined) {
-                let bigpath_curr = find({x: j, y: i}, carmap[i][j]);
-                let start = dir_to_member(vec_sub(carmap[i][j][bigpath_curr], carmap[i][j][bigpath_curr - 1]));
-                let end = dir_to_member(vec_sub(carmap[i][j][bigpath_curr + 1], carmap[i][j][bigpath_curr]));
-                let minipath = minipaths[start][end];
-                let minipath_curr = find(rel_smallcoords({x:j, y:i}, minipath));
-                ///TODO
+        for (let j = 0; j < carmap[i].length; j++) {
+            if(carmap[i][j] === undefined) continue;
+            let bigpath_curr = find(bigcoords({x: j, y: i}), carmap[i][j]);
+            let start = dir_to_member(vec_sub(carmap[i][j][bigpath_curr - 1], carmap[i][j][bigpath_curr]));
+            let end = dir_to_member(vec_sub(carmap[i][j][bigpath_curr + 1], carmap[i][j][bigpath_curr]));
+            let minipath = minipaths[start][end];
+            let minipath_curr = find(rel_smallcoords({x:j, y:i}), minipath);
+            let next_pos = vec_add(minipath[minipath_curr + 1], origin_smallcoords({x:j, y:i}));
+
+            carmap[next_pos.y] = carmap[next_pos.y] || [];
+            next_carmap[next_pos.y] = next_carmap[next_pos.y] || [];
+            console.log(i, j, next_pos.y, next_pos.x, carmap[next_pos.y][next_pos.x], next_carmap[next_pos.y][next_pos.x], carmap[next_pos.y][next_pos.x] && next_carmap[next_pos.y][next_pos.x]);
+            if ((carmap[next_pos.y][next_pos.x] || next_carmap[next_pos.y][next_pos.x]) === undefined) {
+                next_carmap[next_pos.y][next_pos.x] = clone(carmap[i][j]);
+                next_carmap[i][j] = undefined;
             }
         }
-    
+    return next_carmap; 
 };

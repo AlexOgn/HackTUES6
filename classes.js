@@ -1,6 +1,8 @@
-class TrafficLight{
+// Note that Street is the traffic light if the street has enough connections
+// is_intersection(build_map, y, x) can be used to tell if this is applicabble
+class Street{
     constructor(){
-        this.type = "TrafficLight";
+        this.type = "Street";
         this.sequence = [1, 1, 1, 1]; 
         //the number of people we let to cross the road in the directions: "^", "V", ">", "<"
     }
@@ -41,20 +43,16 @@ class Workplace{
     }
 }
 
-class Street{
-    constructor(){
-        this.type = "Street";
-    }
-}
-
 class Car{
     constructor() {
         this.path_to_work = [];
     }
 }
 
-let test = [
-    [new House(), new TrafficLight(), new House()],
-    [new TrafficLight(), new Street(), undefined],
+let build_map = [
+    [new House(), new Street(), new House()],
+    [new Street(), new Street(), undefined],
     [undefined, new Street(), new Workplace()]
 ]
+
+let car_map = [[], [], [], [], [], [], []];
