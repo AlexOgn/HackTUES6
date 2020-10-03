@@ -1,4 +1,12 @@
 
+body{
+    height: 100%;
+}
+
+html{
+    height: 100%;
+}
+
 #counter{
     text-align: center;
     float:right;
@@ -25,7 +33,7 @@
 
 #buttons{
     float:left;
-    margin-top: 0.5%;
+    margin-top: 0.75%;
 }
 
 #top_div{
@@ -35,11 +43,12 @@
 }
 
 #game_canvas{
-    margin: auto;
     position: relative;
+    height: 100%;
 }
 
 *{
+    overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
     outline: 0;
     scrollbar-width: 0;
@@ -61,13 +70,12 @@
     left: 25%;
     top: 25%;
     z-index: 2;
-    background-color: #5af046;
     padding: 10;
     width: 50%;
     height: 50%;
-  background-color: #fefefe;
-  padding: 10;
-  width: 30%;
+    background-color: #fefefe;
+    padding: 10;
+    width: 30%;
 } 
 
 .time_setter{
@@ -91,6 +99,10 @@ input[type=number] {
 
 #submit{
     position: relative;
-    left: 92%;
-    top: 49%;
+    left: 77%;
+    top: 54%;
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
 }
