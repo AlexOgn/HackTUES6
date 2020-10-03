@@ -47,6 +47,12 @@ class Street{
     }
 }
 
+class Car{
+    constructor() {
+        this.path_to_work = [];
+    }
+}
+
 let test = [
     [new House(), new Street(), new House()],
     [undefined, new Street(), undefined],
