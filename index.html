@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,4 +44,47 @@
         <script src="game.js"></script>
     </canvas>
 </body>
+=======
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <script src="load-assets.js"></script>
+      <script src="util.js"></script>
+      <script src="classes.js"></script>
+      <script src="pathfind.js"></script>
+      <title>Svetofar!</title>
+      
+  </head>
+  <body>
+    <div id="crosswalk_editor_div" style="display: block;">
+        <li class="way">
+            up
+        </li>
+        <input class="time_setter" id="up" type="text">
+        <br>
+        <li class="way">
+            down
+        </li>
+        <input class="time_setter" id="down" type="number">
+        <br>
+        <li class="way">
+            left
+        </li>
+        <input class="time_setter" id="right" type="number">
+        <br>
+        <li class="way">
+            right
+        </li>
+        <input class="time_setter" id="left" type="number">
+        <br>
+        <input type="submit" onclick="document.getElementById('crosswalk_editor_div').style='display: none;';">
+    </div>
+    
+    <canvas id="game_canvas">
+      <script src="game.js"></script>
+    </canvas>
+  </body>
+>>>>>>> c0d1ffaabbdb6d5793306209d635734468195d54
 </html>
