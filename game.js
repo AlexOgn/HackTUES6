@@ -22,7 +22,7 @@ const is_intersection = (map, y, x) => {
 }
 
 const draw_street = (ctx, map, size, y, x) => {
-    ctx.fillStyle = "Gray";
+    ctx.fillStyle = "#bbb";
     let half = size / 2;
     let quart = half / 2;
     ctx.fillRect(quart, quart, half, half);
@@ -48,7 +48,7 @@ const draw_map = (ctx, map, size) => {
         for(let x = 0; x < map[y].length; x++) {
             ctx.save();
             ctx.translate(x*size, y*size);
-            ctx.fillStyle = "Green";
+            ctx.fillStyle = "#0fa";
             ctx.fillRect(0, 0, size, size);
             if (get_member(map, y, x) === undefined) {ctx.restore(); continue;}
             draw_street(ctx, map, size, y, x);
@@ -73,7 +73,7 @@ const redraw = () => {
 }
 redraw();
 
-function get_map_element(canvas, ctx, size){
+function get_map_element(ctx, size){
     var matrix = ctx.getTransform();
     var imatrix = matrix.invertSelf();
 
