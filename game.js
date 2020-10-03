@@ -1,16 +1,26 @@
 var game_canvas = document.getElementById("game-canvas");
-game_canvas.width = window.innerWidth;
-game_canvas.height = window.innerHeight;
+game_canvas.width = window.innerWidth / 2;
+game_canvas.height = window.innerHeight / 2;
 var game_ctx = game_canvas.getContext("2d");
+
+const is_intersection = (map, y, x) => {
+    const can_connect = (diry, dirx) => (get_member(map, y + diry, x + dirx) !== undefined);
+    let connections = 0;
+    if (can_connect( 0,  1)) connections++;
+    if (can_connect( 0, -1)) connections++;
+    if (can_connect( 1,  0)) connections++;
+    if (can_connect(-1,  0)) connections++;
+    return connections >= 3;
+}
 
 const draw_street = (ctx, map, size, y, x) => {
     ctx.fillStyle = "Gray";
     let half = size / 2;
     let quart = half / 2;
-    const can_connect = (diry, dirx) => (undefined_member(map, y + diry, x + dirx) !== undefined);
+    ctx.fillRect(quart, quart, half, half);
+    const can_connect = (diry, dirx) => (get_member(map, y + diry, x + dirx) !== undefined);
     const draw_arm = (y, x) => {
         ctx.save();
-        ctx.fillRect(quart, quart, half, half);
         ctx.translate(Math.abs(y) * quart, Math.abs(x) * quart);
         y = (y + 1) * y;
         x = (x + 1) * x;
@@ -25,13 +35,14 @@ const draw_street = (ctx, map, size, y, x) => {
 }
 
 const draw_map = (ctx, map, size) => {
+    ctx.save();
     for (let y = 0; y < map.length; y++) {
         for(let x = 0; x < map[y].length; x++) {
             ctx.save();
             ctx.translate(x*size, y*size);
             ctx.fillStyle = "Green";
             ctx.fillRect(0, 0, size, size);
-            if (undefined_member(map, y, x) === undefined) {ctx.restore(); continue;}
+            if (get_member(map, y, x) === undefined) {ctx.restore(); continue;}
             draw_street(ctx, map, size, y, x);
             if (map[y][x].type == "Factory")
                 ctx.drawImage(assets.factory_img, 0, 0, size, size);
@@ -41,6 +52,7 @@ const draw_map = (ctx, map, size) => {
             ctx.restore();              
         }
     }
+    ctx.restore();
 }
 
 const redraw = () => {
