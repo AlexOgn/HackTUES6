@@ -1,5 +1,3 @@
-var money = 100;
-
 const change_money = (change) => {
     money += change;
     document.getElementById("money").innerHTML = money + "лв";
