@@ -65,7 +65,7 @@ class Car{
 let build_map = [
     [new Building("House", [{x:2, y:2}]), new Street(), new Building("House", [{x:2, y:2}])],
     [new Street(), new Street(), undefined],
-    [undefined, new Street(), new Building("Factory", [{x:0, y:0}, {x:2, y:0}])]
+    [undefined, new Street(), new Building("Factory", [{x:0, y:0}, {x:2, y:0}, {x:2, y:0}, {x:2, y:0}, {x:2, y:0}, {x:2, y:0}, {x:2, y:0}, {x:2, y:0}, {x:2, y:0}, {x:2, y:0}])]
 ]
 
 let car_map = [[], [], [], [], [], [], []];
