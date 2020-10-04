@@ -5,6 +5,7 @@ class Street{
         this.type = "Street";
         this.sequence_length = [1, 1, 1, 1]; 
         this.sequence = ["^", "V", ">", "<"];
+        this.tick = 0;
         //the number of people we let to cross the road in the directions: "^", "V", ">", "<"
     }
 
@@ -28,8 +29,8 @@ class Street{
         this.sequence.fill("<", parseInt(total)-parseInt(left), total);   
     }
 
-    turn(tick_count){
-        tick_count %= this.sequence.length; 
+    turn(){
+        let tick_count = this.tick % this.sequence.length; 
         switch(this.sequence[tick_count]){
             case "^":
                 return "up";

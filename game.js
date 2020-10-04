@@ -43,6 +43,8 @@ const draw_street = (ctx, map, size, y, x) => {
     
 }
 
+const draw_intersection(map, dir, size) = {// TODO};
+
 const draw_map = (ctx, build_map, car_map, size) => {
     let quart = size / 4;
     ctx.save();
@@ -58,6 +60,9 @@ const draw_map = (ctx, build_map, car_map, size) => {
                 ctx.drawImage(assets.factory_img, 0, 0, size, size);
             else if (build_map[y][x].type == "House")
                 ctx.drawImage(assets.house_img, 0, 0, size, size);
+            else if (is_intersection(build_map, y, x)) {
+                draw_intersection(ctx, build_map.tick, size);
+            }
 
             ctx.restore();              
         }
