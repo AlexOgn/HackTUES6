@@ -2,7 +2,7 @@ var game_canvas = document.getElementById("game_canvas");
 game_canvas.width = window.innerWidth;
 game_canvas.height = window.innerHeight;
 var game_ctx = game_canvas.getContext("2d");
-const cell_size = 100;
+const cell_size = 50;
 game_ctx.translate(cell_size * -100, cell_size * -100);
 
 const draw_street = (ctx, map, size, y, x) => {

@@ -3,25 +3,29 @@ const minipaths = {
         left: [{x: 0, y: 2}, {x: 1, y: 2}, {x: 1, y: 1}, {x: 0, y: 1}, {x: -1, y: 1}],
         up: [{x: 0, y: 2}, {x: 1, y: 2}, {x: 2, y: 2}, {x: 2, y: 1}, {x: 2, y: 0}, {x: 2, y: -1}],
         right: [{x: 0, y: 2}, {x: 1, y: 2}, {x: 2, y: 2}, {x: 3, y:2}, {x: 4, y: 2}],
-        down: [{x: 0, y: 2}, {x: 1, y: 2}, {x: 1, y:3}, {x: 1, y:4}]
+        down: [{x: 0, y: 2}, {x: 1, y: 2}, {x: 1, y:3}, {x: 1, y:4}],
+        same : [{x:0, y:0}, {x:0, y:0}]
     },
     up: {
         up: [{x: 1, y: 0}, {x: 1, y: 1}, {x: 2, y: 1}, {x: 2, y: 0}, {x: 2, y: -1}],
         right: [{x: 1, y: 0}, {x: 1, y: 1}, {x: 1, y: 2}, {x: 2, y: 2}, {x: 3, y: 2}, {x: 4, y: 2}],
         down: [{x: 1, y: 0}, {x: 1, y: 1}, {x: 1, y: 2}, {x: 1, y:3}, {x: 1, y: 4}],
-        left: [{x: 1, y: 0}, {x: 1, y: 1}, {x: 0, y:1}, {x: -1, y:1}]
+        left: [{x: 1, y: 0}, {x: 1, y: 1}, {x: 0, y:1}, {x: -1, y:1}],
+        same : [{x:0, y:0}, {x:0, y:0}]
     },
     right: {
         right: [{x: 3, y: 1}, {x: 2, y: 1}, {x: 2, y: 2}, {x: 3, y: 2}, {x: 4, y: 2}],
         down: [{x: 3, y: 1}, {x: 2, y: 1}, {x: 1, y: 1}, {x: 1, y: 2}, {x: 1, y: 3}, {x: 1, y: 4}],
         left: [{x: 3, y: 1}, {x: 2, y: 1}, {x: 1, y: 1}, {x: 0, y:1}, {x: -1, y: 1}],
-        up: [{x: 3, y: 1}, {x: 2, y: 1}, {x: 2, y:0}, {x: 2, y: -1}]
+        up: [{x: 3, y: 1}, {x: 2, y: 1}, {x: 2, y:0}, {x: 2, y: -1}],
+        same : [{x:0, y:0}, {x:0, y:0}]
     },
     down: {
         down: [{x: 2, y: 3}, {x: 2, y: 2}, {x: 1, y: 2}, {x: 1, y: 3}, {x: 1, y: 4}],
         left: [{x: 2, y: 3}, {x: 2, y: 2}, {x: 2, y: 1}, {x: 1, y: 1}, {x: 0, y: 1}, {x: -1, y: 1}],
         up: [{x: 2, y: 3}, {x: 2, y: 2}, {x: 2, y: 1}, {x: 2, y:0}, {x: 2, y: -1}],
-        right: [{x: 2, y: 3}, {x: 2, y: 2}, {x: 3, y:2}, {x: 4, y: 2}]
+        right: [{x: 2, y: 3}, {x: 2, y: 2}, {x: 3, y:2}, {x: 4, y: 2}],
+        same : [{x:0, y:0}, {x:0, y:0}]
     },
 }
 
@@ -34,6 +38,7 @@ const make_carmap = (map, carmap) => {
         if(deepqual(v, {x:0, y:-1})) return "up";
         if(deepqual(v, {x:1, y:0})) return "right";
         if(deepqual(v, {x:0, y:1})) return "down";
+        if(deepqual(v, {x:0, y:0})) return "same";
     }    
     const dual = (dir) => {
         switch (dir) {
@@ -100,6 +105,7 @@ const tick = (map, carmap) => {
         if(deepqual(v, {x:0, y:-1})) return "up";
         if(deepqual(v, {x:1, y:0})) return "right";
         if(deepqual(v, {x:0, y:1})) return "down";
+        if(deepqual(v, {x:0, y:0})) return "same";
     }    
     const dual = (dir) => {
         switch (dir) {
