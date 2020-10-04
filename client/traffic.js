@@ -4,28 +4,28 @@ const minipaths = {
         up: [{x: 0, y: 2}, {x: 1, y: 2}, {x: 2, y: 2}, {x: 2, y: 1}, {x: 2, y: 0}, {x: 2, y: -1}],
         right: [{x: 0, y: 2}, {x: 1, y: 2}, {x: 2, y: 2}, {x: 3, y:2}, {x: 4, y: 2}],
         down: [{x: 0, y: 2}, {x: 1, y: 2}, {x: 1, y:3}, {x: 1, y:4}],
-        same : [{x:0, y:0}, {x:0, y:0}]
+        same : [{x:1, y:1}, {x:2, y:2}]
     },
     up: {
         up: [{x: 1, y: 0}, {x: 1, y: 1}, {x: 2, y: 1}, {x: 2, y: 0}, {x: 2, y: -1}],
         right: [{x: 1, y: 0}, {x: 1, y: 1}, {x: 1, y: 2}, {x: 2, y: 2}, {x: 3, y: 2}, {x: 4, y: 2}],
         down: [{x: 1, y: 0}, {x: 1, y: 1}, {x: 1, y: 2}, {x: 1, y:3}, {x: 1, y: 4}],
         left: [{x: 1, y: 0}, {x: 1, y: 1}, {x: 0, y:1}, {x: -1, y:1}],
-        same : [{x:0, y:0}, {x:0, y:0}]
+        same : [{x:1, y:1}, {x:2, y:2}]
     },
     right: {
         right: [{x: 3, y: 1}, {x: 2, y: 1}, {x: 2, y: 2}, {x: 3, y: 2}, {x: 4, y: 2}],
         down: [{x: 3, y: 1}, {x: 2, y: 1}, {x: 1, y: 1}, {x: 1, y: 2}, {x: 1, y: 3}, {x: 1, y: 4}],
         left: [{x: 3, y: 1}, {x: 2, y: 1}, {x: 1, y: 1}, {x: 0, y:1}, {x: -1, y: 1}],
         up: [{x: 3, y: 1}, {x: 2, y: 1}, {x: 2, y:0}, {x: 2, y: -1}],
-        same : [{x:0, y:0}, {x:0, y:0}]
+        same : [{x:1, y:1}, {x:2, y:2}]
     },
     down: {
         down: [{x: 2, y: 3}, {x: 2, y: 2}, {x: 1, y: 2}, {x: 1, y: 3}, {x: 1, y: 4}],
         left: [{x: 2, y: 3}, {x: 2, y: 2}, {x: 2, y: 1}, {x: 1, y: 1}, {x: 0, y: 1}, {x: -1, y: 1}],
         up: [{x: 2, y: 3}, {x: 2, y: 2}, {x: 2, y: 1}, {x: 2, y:0}, {x: 2, y: -1}],
         right: [{x: 2, y: 3}, {x: 2, y: 2}, {x: 3, y:2}, {x: 4, y: 2}],
-        same : [{x:0, y:0}, {x:0, y:0}]
+        same : [{x:1, y:1}, {x:2, y:2}]
     },
 }
 
@@ -60,14 +60,22 @@ const make_carmap = (map, carmap) => {
         for (let j = 0; j < next_map[i].length; j++) {
             if (get_member(next_map, i, j, "type") != "House" && get_member(map, i, j, "type") != "Factory") continue;
             let dest = next_map[i][j].dests.pop();
-            if (dest === undefined) {next_map[i][j].dests.push(dest);continue};
+            if (dest === undefined) {
+                next_map[i][j].dests.push(dest);
+                continue;
+            }
             let carpath = pathfind(next_map, {x: j, y:i}, dest);
-            if (carpath === undefined) {next_map[i][j].dests.push(dest);continue};
+            if (carpath === undefined) {
+                next_map[i][j].dests.push(dest);
+                change_money(-1);
+                continue;
+            }
             let start = dir_to_member(vec_sub(carpath[0], carpath[1]));
             let end = dir_to_member(vec_sub(carpath[2], carpath[1]));
             let carpos = vec_add(vec_mul(carpath[1], 4), minipaths[start][end][0]);
             if (get_member(next_carmap, carpos.y, carpos.x) !== undefined) {
                 next_map[i][j].dests.push(dest);
+                change_money(-1);
                 continue;
             }
             /// SVETOFAR
@@ -75,6 +83,7 @@ const make_carmap = (map, carmap) => {
             if (is_intersection(map, big_carpos.y, big_carpos.x)) {
                 if(map[big_carpos.y][big_carpos.x].turn() != start) {
                     next_map[i][j].dests.push(dest);
+                    change_money(-1);
                     continue;
                 }
             }
@@ -139,13 +148,18 @@ const tick = (map, carmap) => {
             if(!deepqual(big_next_pos, big_pos)) 
                 if (is_intersection(map, big_next_pos.y, big_next_pos.x)) {
                     if (map[big_next_pos.y][big_next_pos.x].turn() != dual(end)) {
+                        change_money(-1);
                         continue;
                     }
                 }
 
-            if ((carmap[next_pos.y][next_pos.x] || next_carmap[next_pos.y][next_pos.x]) !== undefined) continue;
+            if ((carmap[next_pos.y][next_pos.x] || next_carmap[next_pos.y][next_pos.x]) !== undefined) {
+                change_money(-1);
+                continue;
+            }
             if (deepqual(bigcoords(next_pos), last(carmap[i][j]))) {
                 next_map[bigcoords(next_pos).y][bigcoords(next_pos).x].garage.push(clone(carmap[i][j][0]));
+                change_money(5);
             } else {
                 next_carmap[next_pos.y][next_pos.x] = clone(carmap[i][j]);
             }

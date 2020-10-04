@@ -12,7 +12,7 @@ app.engine('hbs', exphbs({
 
 app.use("/", express.static(__dirname + "/"));
 
-app.use("/style.css", express.static(__dirname + "/style.css"));
+app.use("/../client/style.css", express.static(__dirname + "/../client/style.css"));
 
 //използваме bodyParser
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -35,14 +35,13 @@ function sendData(username, score) {
 function getData(res) {
     con.query("SELECT * FROM user ORDER BY score DESC", function (err, result, fields) {
         if (err) throw err;
-        console.log(result);
         res.render(path.join(__dirname + '/views/layouts/main.hbs'), { data: result });
     });
 }
 
 //main page
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/../index.html");
 });
 
 //leaderboard page
@@ -57,7 +56,6 @@ app.post('/sendInfo', (req, res) => {
     sendData(username, score);
     res.status(200).redirect('/');
 });
-
 
 //SQL магии
 con = mysql.createConnection({

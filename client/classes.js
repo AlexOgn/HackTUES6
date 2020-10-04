@@ -3,8 +3,12 @@
 class Street{
     constructor(){
         this.type = "Street";
-        this.sequence_length = [{element:"^", size:1}, {element:"V", size:1}, 
-        {element:">", size:1}, {element:"<", size:1}];
+        this.sequence_length = [
+            {element:"^", size:1},
+            {element:"V", size:1}, 
+            {element:">", size:1},
+            {element:"<", size:1}
+        ];
     //every array holds the order of the directions (being between 1-4) and the number of people passed
         this.sequence = ["^", "V", ">", "<"];
         this.tick = 0;
@@ -35,6 +39,7 @@ class Street{
             this.sequence.fill(this.sequence_length[i].element, temp, parseInt(temp) + parseInt(this.sequence_length[i].size));
             temp += parseInt(this.sequence_length[i].size);
         }  
+        console.log(this.sequence)
     }
 
     turn(){
@@ -74,7 +79,8 @@ let build_map = [
     ...Array.from(Array(100), () => []), 
     [...Array(100), new Building("House", [{x:102, y:102}]), new Street(), new Building("House", [{x:102, y:102}])],
     [...Array(100), undefined, new Street(), undefined],
-    [...Array(100), undefined, new Street(), new Building("Factory", [])]
+    [...Array(100), undefined, new Street(), new Building("Factory", [])],
+    ...Array.from(Array(100), () => [])
 ]
 
 let car_map = [[], [], [], [], [], [], []];
