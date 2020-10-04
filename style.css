@@ -10,6 +10,7 @@ html{
 }
 
 #days{
+    position: inherit;
     float: right;
     display: inline-block;
     text-align: center;
@@ -17,11 +18,12 @@ html{
     width: 10%; 
     border: 4px solid LightSalmon;
     padding: 15px; 
-    margin-top: 1.1%;
-    margin-right: 0.76%;
+    margin-top: 0.68%;
+    margin-right: 0.75%;
 }
 
 #money{
+    position: inherit;
     float: right;
     display: inline-block;
     text-align: center;
@@ -29,7 +31,7 @@ html{
     width: 10%; 
     border: 4px solid LightSalmon;
     padding: 15px; 
-    margin-top: 1.1%;
+    margin-top: 0.68%;
     margin-right: -12px;
 }
 
@@ -44,22 +46,25 @@ html{
     float: right;
     position: inherit;
     display: inline-block;
-    margin-top: 1.3%;
+    margin-top: 1%;
     width: 48px;
     height: 48px;
 
 }
 
 #top_div{
-    top: 0;
+    border: 4px solid blueviolet;
+    margin-top: 0.75%;
     position: inherit;
-    width: 100%;
-    height: 10%;
+    width: 98.55%;
+    height: 8.5%;
 }
 
 #game_canvas{
+    left: 0;
     position: relative;
-    height: 100%;
+    height: 98.55%;
+    width: 98.9%;
 }
 
 *{
@@ -88,12 +93,13 @@ html{
     padding: 10;
     width: 30%;
     height: 50%;
-    background-color: #fefefe;
+    background-color:white;
 } 
 
 .time_setter{
     position: relative;
     left: 20%;
+    text-align: center;
 }
 
 .direction{
