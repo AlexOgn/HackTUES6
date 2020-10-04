@@ -24,7 +24,7 @@ function get_map_element(ctx, size){
 
     var x = game_mouse_x * imatrix.a + game_mouse_y * imatrix.c + imatrix.e;
     var y = game_mouse_x * imatrix.b + game_mouse_y * imatrix.d + imatrix.f;
-
+    
     var mapx = Math.floor(x / size);
     var mapy = Math.floor(y / size);
     return {x:mapx, y:mapy};
