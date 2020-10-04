@@ -1,61 +1,87 @@
+* {
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: 0;
+    scrollbar-width: 0;
+}
 
-body{
+html {
     height: 100%;
     width: 100%;
 }
 
-html{
+body {
     height: 100%;
     width: 100%;
 }
 
-#money{
+p {
+    position: inherit;
+    width: 20%;
+    margin-top: 12.5%;
+    margin-left: 18%;
+    display: inline-block;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#money {
     position: inherit;
     float: right;
     display: inline-block;
     text-align: center;
-    background-color: #E6E6FA; 
-    width: 10%; 
+    background-color: #E6E6FA;
+    width: 10%;
     border: 4px solid #5B5EA6;
-    padding: 0.8%; 
+    padding: 0.8%;
     margin-top: 0.20%;
     margin-right: 12px;
 }
 
-#lived{
+#lived {
     position: inherit;
     float: right;
     display: inline-block;
     text-align: center;
-    background-color: #E6E6FA; 
-    width: 10%; 
+    background-color: #E6E6FA;
+    width: 10%;
     border: 4px solid #5B5EA6;
-    padding: 0.8%; 
+    padding: 0.8%;
     margin-top: 0.20%;
     margin-right: 0.75%;
 }
 
-.time_setter{
-    margin: 10px;   
+.time_setter {
+    margin: 10px;
     border-color: transparent;
     border-bottom-color: DarkSlateGray;
     background-color: transparent;
 }
 
-.arrow{
+.arrow {
     float: right;
     position: inherit;
     display: inline-block;
     margin-top: 0.5%;
     width: 48px;
     height: 48px;
-
 }
 
-#top_div{
+#top_div {
     border: 4px solid #5B5EA6;
-    background-color:#98B4D4; 
-    margin-left:0.35%;
+    background-color: #98B4D4;
+    margin-left: 0.35%;
     margin-right: 0.35%;
     margin-top: 0.65%;
     position: inherit;
@@ -63,7 +89,7 @@ html{
     height: 6.9%;
 }
 
-#game_canvas{
+#game_canvas {
     position: relative;
     margin-left: 0.39%;
     margin-right: 0.30%;
@@ -71,17 +97,10 @@ html{
     width: 98.35%;
 }
 
-*{
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-    outline: 0;
-    scrollbar-width: 0;
-}
-
-#traffic_editor_div{
+#traffic_editor_div {
     display: none;
     z-index: 2;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 0;
     left: 0;
@@ -89,24 +108,26 @@ html{
     height: 110%;
 }
 
-#traffic_editor_main_text{
+#traffic_editor_main_text {
+    display: block;
     position: inherit;
     left: 30%;
     top: 25%;
+    z-index: 6;
     padding: 10;
     width: 30%;
     height: 50%;
     background-color: LightSteelBlue;
-} 
+}
 
-.time_setter{
-    position: relative;
+.time_setter {
+    position: inherit;
     left: 20%;
     text-align: center;
 }
 
-.direction{
-    background-color:  rgb(96, 109, 122);
+.direction {
+    background-color: rgb(96, 109, 122);
     border: none;
     color: WhiteSmoke;
     position: inherit;
@@ -114,21 +135,14 @@ html{
     margin-left: 12%;
     display: inline-block;
 }
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type=number] {
-  -moz-appearance: textfield;
-}
 
-#submit{
+#submit {
     position: inherit;
     left: 33%;
     top: 85%;
     width: 33%;
     height: 10%;
-    background-color:DarkSlateGrey;
+    background-color: DarkSlateGrey;
     border: none;
     color: WhiteSmoke;
     text-align: center;
@@ -140,33 +154,22 @@ input[type=number] {
     cursor: pointer;
 }
 
-#submit:hover{
+#submit:hover {
     background-color: WhiteSmoke;
-    color:DarkSlateGrey;
+    color: DarkSlateGrey;
 }
 
-input[type=number]{
-    -moz-appearance: textfield;
-}
-#input_container{
+#input_container {
     position: relative;
     margin-top: 20%;
     margin-left: 4%;
     margin-right: 4%;
 }
 
-p{
-    position: inherit;
-    width: 20%;
-    margin-top: 12.5%;
-    margin-left: 18%;
-    display: inline-block;
-}
-
-#game_over_div_background{
+#game_over_div_background {
     display: none;
     z-index: 2;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 0;
     left: 0;
@@ -174,8 +177,7 @@ p{
     height: 110%;
 }
 
-#game_over_div{
-    z-index: 6;
+#game_over_div {
     position: absolute;
     left: 35%;
     top: 35%;
@@ -185,12 +187,12 @@ p{
     background-color: LightSteelBlue;
 }
 
-.game_over_input{
+.game_over_input {
     position: inherit;
     width: 50%;
     margin-left: 12%;
     display: inline-block;
-    margin: 5%;   
+    margin: 5%;
     border-color: transparent;
     border-bottom-color: DarkSlateGray;
     background-color: transparent;
