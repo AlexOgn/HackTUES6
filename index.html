@@ -22,22 +22,18 @@
 </head>
 <body>
     <div id="top_div">
-    <div id= "counter" name="money"></div>
-    <div id= "counter" name="days"></div>
-    
-    <div id="arrows">
-          <input type="image" src="assets/arrow_right.png" width="48" height="48" onclick="move_camera(1, 0)">
-          <input type="image" src="assets/arrow_left.png" width="48" height="48" onclick="move_camera(-1, 0)">
-          <input type="image" src="assets/arrow_up.png" width="48" height="48" onclick="move_camera(0, -1)">
-          <input type="image" src="assets/arrow_down.png" width="48" height="48" onclick="move_camera(0, 1)">
-      </div>
+        <input type="image" class="arrow" src="assets/pause_button.png">
+        <input type="image" class="arrow" src="assets/play_button.png">
+        <input type="image" class="arrow" src="assets/double_speed_button.png">
+        <input type="image" class="arrow" src="assets/skip_buttton.png" style="margin-right: 61%;">
 
-      <div id="buttons">
-          <input type="image" class="arrow" src="assets/pause_button.png" width="48" height="48">
-          <input type="image" class="arrow" src="assets/play_button.png" width="48" height="48">
-          <input type="image" class="arrow" src="assets/double_speed_button.png" width="48" height="48">
-          <input type="image" class="arrow" src="assets/skip_buttton.png" width="48" height="48">
-      </div>
+        <input type="image" class="arrow" src="assets/arrow_left.png" onclick="move_camera(-1, 0)">
+        <input type="image" class="arrow" src="assets/arrow_right.png" onclick="move_camera(1, 0)">
+        <input type="image" class="arrow" src="assets/arrow_up.png" onclick="move_camera(0, -1)">
+        <input type="image" class="arrow" src="assets/arrow_down.png" onclick="move_camera(0, 1)">
+
+        <div id= "counter" name="money"></div>
+        <div id= "counter" name="days"></div>
 
     </div>
 
