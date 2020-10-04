@@ -7,18 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="load-assets.js"></script>
     <script src="util.js"></script>
+    <script src="money.js"></script>
     <script src="classes.js"></script>
     <script src="pathfind.js"></script>
     <script src="canvas-movement.js"></script>
     <script src="traffic.js"></script>
 
-    <script type="text/javascript">
-        window.onload = function () {
-            document.getElementsByName("days")[0].innerHTML = "1234 ден";
-            document.getElementsByName("money")[0].innerHTML = "4738 лв";
-        }
-    </script>
-    <title>Document</title>
+    <title>СВЕТОФАР!</title>
 
 
 </head>
@@ -26,7 +21,7 @@
 <body>
     <div id="top_div">
         <span id="money" name="money"></span>
-        <span id="days" name="days"></span>
+        <span id="lived" name="lived"></span>
         <input type="image" class="arrow" src="assets/arrow_down.png" onclick="move_camera(0, -1)">
         <input type="image" class="arrow" src="assets/arrow_up.png" onclick="move_camera(0, 1)">
         <input type="image" class="arrow" src="assets/arrow_right.png" onclick="move_camera(-1, 0)">

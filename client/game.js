@@ -1,6 +1,6 @@
 var game_mouse_x;
 var game_mouse_y;
-var money = 0;
+var placing_road = false;
 
 window.addEventListener("mousemove", (e) => {
     let canvas_pos = document.getElementById("game_canvas").getBoundingClientRect();
@@ -48,14 +48,8 @@ function symbol_to_val(symbol){
     }
 }
 
+
 function traffic_config(map, position){
-    if (get_member(map, position.y, position.x) === undefined) {
-        map[position.y] = map[position.y] || [];
-        for(let i = 0; i < map.length; i++) map[i] = map[i] || [];
-        map[position.y][position.x] = new Street();
-        money--;
-        return;
-    }
     if(!is_intersection(map, position.y, position.x)) return;
 
     // currying is VERY important
@@ -78,7 +72,28 @@ function traffic_config(map, position){
     document.getElementById("fourth").selectedIndex = symbol_to_val(map[position.y][position.x].sequence_length[3].element);
 }
 
-game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, cell_size)));
+const build_road = (map, pos) => {
+    if (get_member(map, pos.y, pos.x) === undefined && placing_road) {
+        map[pos.y] = map[pos.y] || [];
+        for(let i = 0; i < map.length; i++) map[i] = map[i] || [];
+        map[pos.y][pos.x] = new Street();
+        change_money(-1);
+     }
+}
+
+game_canvas.addEventListener('mouseup', () => {
+    traffic_config(build_map, get_map_element(game_ctx, cell_size))
+    placing_road = false;
+});
+
+window.addEventListener("mousemove", () => {
+    build_road(build_map, get_map_element(game_ctx, cell_size));
+}); 
+game_canvas.addEventListener('mousedown', () => {
+    placing_road = true;
+    build_road(build_map, get_map_element(game_ctx, cell_size));
+});
+
 
 const add_house = (map) => {
     let next_map = clone(map);
