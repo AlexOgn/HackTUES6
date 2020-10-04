@@ -135,4 +135,6 @@ input[type=number]{
 #input_container{
     position: relative;
     margin-top: 4%;
+    margin-left: 4%;
+    margin-right: 4%;
 }
