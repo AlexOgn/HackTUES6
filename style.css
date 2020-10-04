@@ -93,15 +93,14 @@ html{
 
 .time_setter{
     position: relative;
-    left: 30%;
+    left: 20%;
 }
 
 .direction{
-    position: relative;
-    width: 10%;
-    margin-left: 5%;
+    position: inherit;
+    width: 20%;
+    margin-left: 12%;
     display: inline-block;
-    appearance: textfield;
 }
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
