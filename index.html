@@ -29,10 +29,10 @@
         <input type="image" class="arrow" src="assets/arrow_up.png" onclick="move_camera(0, -1)">
         <input type="image" class="arrow" src="assets/arrow_right.png" onclick="move_camera(1, 0)">
         <input type="image" class="arrow" src="assets/arrow_left.png" onclick="move_camera(-1, 0)">
-        <input type="image" style="float: left;"class="arrow" src="assets/pause_button.png">
-        <input type="image" style="float: left;" class="arrow" src="assets/play_button.png">        
-        <input type="image" style="float: left;" class="arrow" src="assets/double_speed_button.png">
-        <input type="image" style="float: left;" class="arrow" src="assets/skip_buttton.png">
+        <input type="image" style="float: left;" class="arrow" src="assets/pause_button.png" onclick="delay = Infinity">
+        <input type="image" style="float: left;" class="arrow" src="assets/play_button.png" onclick="delay = 2">        
+        <input type="image" style="float: left;" class="arrow" src="assets/double_speed_button.png" onclick="delay = 1">
+        <!-- <input type="image" style="float: left;" class="arrow" src="assets/skip_buttton.png"> -->
 
         
 
@@ -90,5 +90,6 @@
           <script src="draw.js"></script>
         </canvas>
     </div>
+    <script src="mainloop.js"></script>
 </body>
 </html>
