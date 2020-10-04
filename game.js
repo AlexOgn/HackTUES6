@@ -97,87 +97,6 @@ function get_map_element(ctx, size){
     return {x:mapx, y:mapy};
 }
 
-function check_other_answers(inp){
-    switch(inp){
-    case document.getElementById("first"):
-        switch(inp.selectedIndex){
-            case document.getElementById("second").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("second").selectedIndex;
-                document.getElementById("second").selectedIndex = temp;  
-                break;
-            case document.getElementById("third").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("third").selectedIndex;
-                document.getElementById("second").selectedIndex = temp; 
-                break;
-            case document.getElementById("fourth").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("fourth").selectedIndex;
-                document.getElementById("second").selectedIndex = temp; 
-                break;
-        }
-        break;
-    case document.getElementById("second"):
-        switch(inp.selectedIndex){
-            case document.getElementById("second").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("second").selectedIndex;
-                document.getElementById("second").selectedIndex = temp;  
-                break;
-            case document.getElementById("third").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("third").selectedIndex;
-                document.getElementById("second").selectedIndex = temp; 
-                break;
-            case document.getElementById("fourth").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("fourth").selectedIndex;
-                document.getElementById("second").selectedIndex = temp; 
-                break;
-        }
-        break;
-    case document.getElementById("third"):
-        switch(inp.selectedIndex){
-            case document.getElementById("second").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("second").selectedIndex;
-                document.getElementById("second").selectedIndex = temp;  
-                break;
-            case document.getElementById("third").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("third").selectedIndex;
-                document.getElementById("second").selectedIndex = temp; 
-                break;
-            case document.getElementById("fourth").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("fourth").selectedIndex;
-                document.getElementById("second").selectedIndex = temp; 
-                break;
-        }
-        break;
-    case document.getElementById("fourth"):
-        switch(inp.selectedIndex){
-            case document.getElementById("second").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("second").selectedIndex;
-                document.getElementById("second").selectedIndex = temp;  
-                break;
-            case document.getElementById("third").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("third").selectedIndex;
-                document.getElementById("second").selectedIndex = temp; 
-                break;
-            case document.getElementById("fourth").selectedIndex:
-                temp = inp.selectedIndex;
-                inp.selectedIndex = document.getElementById("fourth").selectedIndex;
-                document.getElementById("second").selectedIndex = temp; 
-                break;
-        }
-        break;
-    }
-}
-
 let submit = document.getElementById("submit");
 
 let first = document.getElementById("first");
@@ -185,10 +104,76 @@ let second = document.getElementById("second");
 let third = document.getElementById("third");
 let fourth = document.getElementById("fourth");
 
-first.onchange = () =>{check_other_answers(first);}
-second.onchange = () =>{check_other_answers(second);}
-third.onchange = () =>{check_other_answers(third);}
-fourth.onchange = () =>{check_other_answers(fourth);}
+first.onchange = () =>{
+    temp = first.selectedIndex;
+    console.log(temp);
+    switch(first.selectedIndex){
+        case second.selectedIndex:
+            console.log("we're in");
+            first.selectedIndex = second.selectedIndex;
+            second.selectedIndex = temp;
+            break;
+        case third.selectedIndex:
+            first.selectedIndex = third.selectedIndex;
+            third.selectedIndex = temp;
+            break;
+        case fourth.selectedIndex:
+            first.selectedIndex = fourth.selectedIndex;
+            fourth.selectedIndex = temp;
+            break;
+    }
+}
+second.onchange = () =>{
+    temp = second.selectedIndex;
+    switch(second.selectedIndex){
+        case first.selectedIndex:
+            second.selectedIndex = first.selectedIndex;
+            first.selectedIndex = temp;
+            break;
+        case third.selectedIndex:
+            second.selectedIndex = third.selectedIndex;
+            third.selectedIndex = temp;
+            break;
+        case fourth.selectedIndex:
+            second.selectedIndex = fourth.selectedIndex;
+            fourth.selectedIndex = temp;
+            break;
+    }
+}
+third.onchange = () =>{
+    temp = third.selectedIndex;
+    switch(first.selectedIndex){
+        case second.selectedIndex:
+            third.selectedIndex = second.selectedIndex;
+            second.selectedIndex = temp;
+            break;
+        case first.selectedIndex:
+            third.selectedIndex = first.selectedIndex;
+            first.selectedIndex = temp;
+            break;
+        case fourth.selectedIndex:
+            third.selectedIndex = fourth.selectedIndex;
+            fourth.selectedIndex = temp;
+            break;
+    }
+}
+fourth.onchange = () =>{
+    temp = fourth.selectedIndex;
+    switch(first.selectedIndex){
+        case second.selectedIndex:
+            fourth.selectedIndex = second.selectedIndex;
+            second.selectedIndex = temp;
+            break;
+        case third.selectedIndex:
+            fourth.selectedIndex = third.selectedIndex;
+            third.selectedIndex = temp;
+            break;
+        case first.selectedIndex:
+            fourth.selectedIndex = first.selectedIndex;
+            first.selectedIndex = temp;
+            break;
+    }
+}
 
 function traffic_config(map, position){
     if(!is_intersection(map, position.y, position.x)) return;
@@ -200,10 +185,10 @@ function traffic_config(map, position){
     }
     
     document.getElementById("traffic_editor_div").style="display:block";
-    document.getElementById("up").value = map[position.y][position.x].sequence_length[0];
-    document.getElementById("down").value = map[position.y][position.x].sequence_length[1];
-    document.getElementById("right").value = map[position.y][position.x].sequence_length[2];
-    document.getElementById("left").value = map[position.y][position.x].sequence_length[3];
+    document.getElementById("up").value = map[position.y][position.x].sequence_length[0].size;
+    document.getElementById("down").value = map[position.y][position.x].sequence_length[1].size;
+    document.getElementById("right").value = map[position.y][position.x].sequence_length[2].size;
+    document.getElementById("left").value = map[position.y][position.x].sequence_length[3].size;
 }
 
 if(is_day == false){

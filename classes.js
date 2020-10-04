@@ -3,8 +3,9 @@
 class Street{
     constructor(){
         this.type = "Street";
-        this.sequence_length = [[4],[2]]; 
+        this.sequence_length = [{position:1, size:1}, {position:2, size:1}, {position:3, size:1}, {position:4, size:1}];
     //every array holds the order of the directions (being between 1-4) and the number of people passed
+        console.log(this.sequence_length);
         this.sequence = ["^", "V", ">", "<"];
         //the number of people we let to cross the road in the directions: "^", "V", ">", "<"
     }
@@ -16,10 +17,10 @@ class Street{
         let left = document.getElementsByName("left")[0].value;
         let total = parseInt(top) + parseInt(bottom) + parseInt(right) + parseInt(left);
 
-        this.sequence_length[0][1] = top;
-        this.sequence_length[1][1] = bottom;
-        this.sequence_length[2][1] = right;
-        this.sequence_length[3][1] = left;
+        this.sequence_length[0].size = top;
+        this.sequence_length[1].size = bottom;
+        this.sequence_length[2].size = right;
+        this.sequence_length[3].size = left;
         
         this.sequence.length = total;
         
