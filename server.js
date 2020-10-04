@@ -4,14 +4,19 @@ var path = require('path');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
-/*const ejs = require('ejs');
-app.set('view engine', 'ejs');*/
 
+//използва handlebars като default engine
 app.engine('hbs', exphbs({
     extname: '.hbs'
 }));
 
-app.use("/",express.static(__dirname + "/"));
+app.use("/", express.static(__dirname + "/"));
+
+app.use("/style.css", express.static(__dirname + "/style.css"));
+
+//използваме bodyParser
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
 
 app.set('view engine', 'hbs');
 
@@ -26,6 +31,7 @@ function sendData(username, score) {
     });
 }
 
+//взима информация от датабазата
 function getData(res) {
     con.query("SELECT * FROM user ORDER BY score DESC", function (err, result, fields) {
         if (err) throw err;
@@ -33,31 +39,19 @@ function getData(res) {
         res.render(path.join(__dirname + '/views/layouts/main.hbs'), { data: result });
     });
 }
+
+//main page
 app.get('/', function (req, res) {
+    res.sendFile(__dirname + "/index.html");
+});
+
+//leaderboard page
+app.get('/leaderboard', function (req, res) {
     getData(res);
 });
 
-/*
-    if (err) throw err;
-    con.query("SELECT * FROM user", function (err, result, fields) {
-      if (err) throw err;
-      console.log(result);
-    });
-*/
-
-//използваме bodyParser
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json());
-
-/*
-app.get('/leaders', function(req, res){
-    const data = getData();
-    res.json(data);
-})
-*/
-
 //post-ва резултати
-app.post('/leaderboard', (req, res) => {
+app.post('/sendInfo', (req, res) => {
     let username = req.body.username;
     let score = req.body.score
     sendData(username, score);
