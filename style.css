@@ -69,14 +69,13 @@ html{
 
 #traffic_editor_main_text{
     position: absolute;
-    left: 25%;
+    left: 35%;
     top: 25%;
     z-index: 2;
     padding: 10;
     width: 30%;
     height: 50%;
     background-color: #fefefe;
-    padding: 10;
 } 
 
 .time_setter{
