@@ -132,3 +132,7 @@ input[type=number] {
 input[type=number]{
     -moz-appearance: textfield;
 }
+#input_container{
+    position: relative;
+    margin-top: 4%;
+}
