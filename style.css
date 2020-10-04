@@ -10,24 +10,27 @@ html{
 }
 
 #days{
+    float: right;
     display: inline-block;
     text-align: center;
     background-color: LightGoldenRodYellow; 
-    width: 6%; 
+    width: 10%; 
     border: 4px solid LightSalmon;
     padding: 15px; 
-    margin-top: 0.5%;
-    margin-right: -8px;
+    margin-top: 0.68%;
+    margin-right: 0.75%;
 }
 
 #money{
+    float: right;
     display: inline-block;
     text-align: center;
     background-color: LightGoldenRodYellow; 
-    width: 6%; 
+    width: 10%; 
     border: 4px solid LightSalmon;
     padding: 15px; 
-    margin-top: 0.5%;
+    margin-top: 0.68%;
+    margin-right: -12px;
 }
 
 .time_setter{
@@ -38,18 +41,23 @@ html{
 }
 
 .arrow{
+    float: right;
     position: inherit;
     display: inline-block;
-    margin-top: 0.75%;
+    margin-top: 1%;
     width: 48px;
     height: 48px;
 
 }
 
 #top_div{
-    position: relative;
-    width: 100%;
-    height: 100px;
+    border: 4px solid blueviolet;
+    margin-left:0.75%;
+    margin-right: 0.75%;
+    margin-top: 0.75%;
+    position: inherit;
+    width: 98%;
+    height: 10%;
 }
 
 #game_canvas{
@@ -83,11 +91,12 @@ html{
     padding: 10;
     width: 30%;
     height: 50%;
-    background-color: #fefefe;
+    /*background-color:;*/
 } 
 
 .time_setter{
     position: relative;
+    text-align: center;
     left: 30%;
 }
 
