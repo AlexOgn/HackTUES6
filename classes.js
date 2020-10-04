@@ -72,11 +72,10 @@ class Car{
 }
 
 let build_map = [
-    ...Array.from(Array(0), () => []), 
-    [...Array(0), new Building("House", [{x:2, y:2}]), new Street(), new Building("House", [{x:2, y:2}])],
-    [...Array(0), new Street(), new Street(), undefined],
-    [...Array(0), undefined, new Street(), new Building("Factory", [{x:0, y:0}, {x:2, y:0}])],
-    ...Array.from(Array(0), () => []),
+    ...Array.from(Array(100), () => []), 
+    [...Array(100), new Building("House", [{x:102, y:102}]), new Street(), new Building("House", [{x:102, y:102}])],
+    [...Array(100), new Street(), new Street(), undefined],
+    [...Array(100), undefined, new Street(), new Building("Factory", [])]
 ]
 
 let car_map = [[], [], [], [], [], [], []];
