@@ -28,17 +28,11 @@ class Street{
     }
 }
 
-class House{
-    constructor(x, y){
-        this.work_coords = {x: x, y: y};
-        this.type = "House";
-    }
-}
-
-class Workplace{
-    constructor(){
-        this.path_to_homes = [];
-        this.type = "Factory";
+class Building{
+    constructor(type, dests){
+        this.dests = dests;
+        this.type = type;
+        this.garage = [];
     }
 }
 
@@ -49,9 +43,9 @@ class Car{
 }
 
 let build_map = [
-    [new House(2, 2), new Street(), new House(2, 2)],
+    [new Building("House", [{x:2, y:2}]), new Street(), new Building("House", [{x:2, y:2}])],
     [new Street(), new Street(), undefined],
-    [undefined, new Street(), new Workplace()]
+    [undefined, new Street(), new Building("Factory", [{x:0, y:0}, {x:2, y:0}])]
 ]
 
 let car_map = [[], [], [], [], [], [], []];

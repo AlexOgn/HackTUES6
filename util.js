@@ -6,7 +6,7 @@ const clone = (obj) => {
     if (obj instanceof Date)
         var temp = new obj.constructor(); //or new Date(obj);
     else
-        var temp = obj.constructor();
+        var temp = new obj.constructor();
 
     for (var key in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, key)) {
