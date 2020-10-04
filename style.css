@@ -17,9 +17,9 @@ html{
     background-color: LightGoldenRodYellow; 
     width: 10%; 
     border: 4px solid #5B5EA6;
-    padding: 15px; 
+    padding: 0.8%; 
     margin-top: 0.32%;
-    margin-right: 0.75%;
+    margin-right: -12px;
 }
 
 #money{
@@ -30,9 +30,9 @@ html{
     background-color: LightGoldenRodYellow; 
     width: 10%; 
     border: 4px solid #5B5EA6;
-    padding: 15px; 
+    padding: 0.8%; 
     margin-top: 0.32%;
-    margin-right: -12px;
+    margin-right: 0.75%;
 }
 
 .time_setter{
@@ -60,7 +60,7 @@ html{
     margin-top: 0.65%;
     position: inherit;
     width: 98.55%;
-    height: 8.5%;
+    height: 7.5%;
 }
 
 #game_canvas{
