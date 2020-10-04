@@ -39,32 +39,34 @@
 
     <div id="traffic_editor_div">
       <div id="traffic_editor_main_text">
-        <li class="direction">
-            up
-        </li>
-        <input class="time_setter" id="up" type="text" name="up">
-        <br>
+        <div id="input_container">            
+            <li class="direction">
+                Up
+            </li>
+            <input class="time_setter" id="up" type="text" name="up">
+            <br>
 
-        <li class="direction">
-            down
-        </li>
-        <input class="time_setter" id="down" type="number" name="down">
-        <br>
+            <li class="direction">
+                Down
+            </li>
+            <input class="time_setter" id="down" type="number" name="down">
+          <br>
 
-        <li class="direction">
-            left
-        </li>
-        <input class="time_setter" id="right" type="number" name="right">
-        <br>
+          <li class="direction">
+                Left
+            </li>
+            <input class="time_setter" id="right" type="number" name="right">
+            <br>
 
-        <li class="direction">
-            right
-        </li>
-        <input class="time_setter" id="left" type="number" name="left">
-        <br>
-
+            <li class="direction">
+                Right
+            </li>
+            <input class="time_setter" id="left" type="number" name="left">
+            <br>
+        </div>
         <input type="submit" id="submit" value="Submit">
-      </div>
+ 
+    </div>
     </div>
     <div style="height: 100%;">
         <canvas id="game_canvas">
