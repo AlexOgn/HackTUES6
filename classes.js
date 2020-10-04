@@ -3,7 +3,8 @@
 class Street{
     constructor(){
         this.type = "Street";
-        this.sequence_length = [1, 1, 1, 1]; 
+        this.sequence_length = [[4],[2]]; 
+    //every array holds the order of the directions (being between 1-4) and the number of people passed
         this.sequence = ["^", "V", ">", "<"];
         //the number of people we let to cross the road in the directions: "^", "V", ">", "<"
     }
@@ -15,10 +16,10 @@ class Street{
         let left = document.getElementsByName("left")[0].value;
         let total = parseInt(top) + parseInt(bottom) + parseInt(right) + parseInt(left);
 
-        this.sequence_length[0] = top;
-        this.sequence_length[1] = bottom;
-        this.sequence_length[2] = right;
-        this.sequence_length[3] = left;
+        this.sequence_length[0][1] = top;
+        this.sequence_length[1][1] = bottom;
+        this.sequence_length[2][1] = right;
+        this.sequence_length[3][1] = left;
         
         this.sequence.length = total;
         
@@ -63,7 +64,7 @@ class Car{
 
 let build_map = [
     [new Building("House", [{x:2, y:2}]), new Street(), new Building("House", [{x:2, y:2}])],
-    [new Street(), new Street(), undefined],
+    [undefined, new Street(), undefined],
     [undefined, new Street(), new Building("Factory", [{x:0, y:0}, {x:2, y:0}])]
 ]
 

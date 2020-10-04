@@ -5,6 +5,7 @@ var game_ctx = game_canvas.getContext("2d");
 
 var game_mouse_x;
 var game_mouse_y;
+var is_day = false;
 
 window.addEventListener("mousemove", (e) => {
     let canvas_pos = document.getElementById("game_canvas").getBoundingClientRect();
@@ -96,6 +97,42 @@ function get_map_element(ctx, size){
     return {x:mapx, y:mapy};
 }
 
+function swap_selected_values(first_element, second_element){
+    first = first_element.selectedIndex;
+    second = second_element.selectedIndex;
+    first_element.selectedIndex = second;
+    second_element.selectedIndex = first;
+}
+
+function check_other_answers(inp){
+    switch(inp){
+    case document.getElementById("first"):
+        
+        break;
+    case document.getElementById("second"):
+        
+        break;
+    case document.getElementById("third"):
+        
+        break;
+    case document.getElementById("fourth"):
+        
+        break;
+    }
+}
+
+let submit = document.getElementById("submit");
+
+let first = document.getElementById("first");
+let second = document.getElementById("second");
+let third = document.getElementById("third");
+let fourth = document.getElementById("fourth");
+
+first.onchange = () =>{check_other_answers(first);}
+second.onchange = () =>{check_other_answers(second);}
+third.onchange = () =>{check_other_answers(third);}
+fourth.onchange = () =>{check_other_answers(fourth);}
+
 function traffic_config(map, position){
     if(!is_intersection(map, position.y, position.x)) return;
 
@@ -112,6 +149,6 @@ function traffic_config(map, position){
     document.getElementById("left").value = map[position.y][position.x].sequence_length[3];
 }
 
-game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, 100)));
-
-let submit = document.getElementById("submit");
+if(is_day == false){
+    game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, 100)));
+}
