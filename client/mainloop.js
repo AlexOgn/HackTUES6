@@ -1,8 +1,5 @@
 let delay = 2;
 let delay_counter = 0;
-const factory_freq = 200;
-const house_freq = 50;
-const garage_freq = 100;
 let lived = 0;
 
 const mainloop = () => {

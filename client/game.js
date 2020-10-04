@@ -8,17 +8,6 @@ window.addEventListener("mousemove", (e) => {
     game_mouse_y = e.clientY - canvas_pos.y;
 }); 
 
-const is_intersection = (map, y, x) => {
-    if(get_member(map, y, x, "type") !== "Street") return false;
-    const can_connect = (diry, dirx) => (get_member(map, y + diry, x + dirx) !== undefined);
-    let connections = 0;
-    if (can_connect( 0,  1)) connections++;
-    if (can_connect( 0, -1)) connections++;
-    if (can_connect( 1,  0)) connections++;
-    if (can_connect(-1,  0)) connections++;
-    return connections >= 3;
-}
-
 function get_map_element(ctx, size){
     var matrix = ctx.getTransform();
     var imatrix = matrix.invertSelf();
@@ -77,7 +66,7 @@ const build_road = (map, pos) => {
         map[pos.y] = map[pos.y] || [];
         for(let i = 0; i < map.length; i++) map[i] = map[i] || [];
         map[pos.y][pos.x] = new Street();
-        change_money(-1);
+        change_money(road_cost);
      }
 }
 
