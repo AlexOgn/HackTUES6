@@ -17,7 +17,7 @@ html{
     width: 10%; 
     border: 4px solid LightSalmon;
     padding: 15px; 
-    margin-top: 0.5%;
+    margin-top: 1.1%;
     margin-right: 0.76%;
 }
 
@@ -29,7 +29,7 @@ html{
     width: 10%; 
     border: 4px solid LightSalmon;
     padding: 15px; 
-    margin-top: 0.5%;
+    margin-top: 1.1%;
     margin-right: -12px;
 }
 
@@ -44,7 +44,7 @@ html{
     float: right;
     position: inherit;
     display: inline-block;
-    margin-top: 0.75%;
+    margin-top: 1.3%;
     width: 48px;
     height: 48px;
 
@@ -54,7 +54,7 @@ html{
     top: 0;
     position: inherit;
     width: 100%;
-    height: 7%;
+    height: 10%;
 }
 
 #game_canvas{
