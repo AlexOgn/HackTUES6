@@ -50,7 +50,7 @@ const draw_map = (ctx, build_map, car_map, size) => {
         for(let x = 0; x < build_map[y].length; x++) {
             ctx.save();
             ctx.translate(x*size, y*size);
-            ctx.fillStyle = "#8acd60";//rgb(164, 245, 59)
+            ctx.fillStyle = "#8acd60";
             ctx.fillRect(0, 0, size, size);
             if (get_member(build_map, y, x) === undefined) {ctx.restore(); continue;}
             draw_street(ctx, build_map, size, y, x);
@@ -106,10 +106,10 @@ function traffic_config(map, position){
     }
     
     document.getElementById("traffic_editor_div").style="display:block";
-    document.getElementById("up").value = map[position.y][position.x].sequence[0];
-    document.getElementById("down").value = map[position.y][position.x].sequence[1];
-    document.getElementById("right").value = map[position.y][position.x].sequence[2];
-    document.getElementById("left").value = map[position.y][position.x].sequence[3];
+    document.getElementById("up").value = map[position.y][position.x].sequence_length[0];
+    document.getElementById("down").value = map[position.y][position.x].sequence_length[1];
+    document.getElementById("right").value = map[position.y][position.x].sequence_length[2];
+    document.getElementById("left").value = map[position.y][position.x].sequence_length[3];
 }
 
 game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, 100)));

@@ -21,19 +21,19 @@
         
 </head>
 <body>
-    <div id="top_div">
-        <input type="image" class="arrow" src="assets/pause_button.png">
-        <input type="image" class="arrow" src="assets/play_button.png">
-        <input type="image" class="arrow" src="assets/double_speed_button.png">
-        <input type="image" class="arrow" src="assets/skip_buttton.png" style="margin-right: 55%;">
-
-        <input type="image" class="arrow" src="assets/arrow_left.png" onclick="move_camera(-1, 0)">
-        <input type="image" class="arrow" src="assets/arrow_right.png" onclick="move_camera(1, 0)">
-        <input type="image" class="arrow" src="assets/arrow_up.png" onclick="move_camera(0, -1)">
-        <input type="image" class="arrow" src="assets/arrow_down.png" onclick="move_camera(0, 1)">
-
+    <div id="top_div"> 
         <span id="days" name="days"></span>
         <span id="money" name="money"></span>
+        <input type="image" class="arrow" src="assets/arrow_down.png" onclick="move_camera(0, 1)">
+        <input type="image" class="arrow" src="assets/arrow_up.png" onclick="move_camera(0, -1)">
+        <input type="image" class="arrow" src="assets/arrow_right.png" onclick="move_camera(1, 0)">
+        <input type="image" class="arrow" src="assets/arrow_left.png" onclick="move_camera(-1, 0)">
+        <input type="image" style="float: left;"class="arrow" src="assets/pause_button.png">
+        <input type="image" style="float: left;" class="arrow" src="assets/skip_buttton.png">
+        <input type="image" style="float: left;" class="arrow" src="assets/play_button.png">        
+        <input type="image" style="float: left;" class="arrow" src="assets/double_speed_button.png">
+
+        
 
     </div>
 
@@ -68,7 +68,7 @@
  
     </div>
     </div>
-    <div style="height: 100%;">
+    <div>
         <canvas id="game_canvas">
         <script src="game.js"></script>
         </canvas>
