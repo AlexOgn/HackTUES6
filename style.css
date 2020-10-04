@@ -9,7 +9,7 @@ html{
     width: 100%;
 }
 
-#days{
+#money{
     position: inherit;
     float: right;
     display: inline-block;
@@ -22,7 +22,7 @@ html{
     margin-right: 0.75%;
 }
 
-#money{
+#days{
     position: inherit;
     float: right;
     display: inline-block;
@@ -38,7 +38,7 @@ html{
 .time_setter{
     margin: 10px;   
     border-color: transparent;
-    border-bottom-color: magenta;
+    border-bottom-color: DarkSlateGray;
     background-color: transparent;
 }
 
@@ -97,7 +97,7 @@ html{
     padding: 10;
     width: 30%;
     height: 50%;
-    background-color:white;
+    background-color: LightSteelBlue;
 } 
 
 .time_setter{
@@ -126,9 +126,9 @@ input[type=number] {
     top: 85%;
     width: 33%;
     height: 10%;
-    background-color: darkgray;
+    background-color:DarkSlateGrey;
     border: none;
-    color: black;
+    color: WhiteSmoke;
     text-align: center;
     font-size: 16px;
     margin: 4px 2px;
@@ -139,8 +139,8 @@ input[type=number] {
 }
 
 #submit:hover{
-    background-color: black;
-    color: white;
+    background-color: WhiteSmoke;
+    color:DarkSlateGrey;
 }
 
 input[type=number]{
