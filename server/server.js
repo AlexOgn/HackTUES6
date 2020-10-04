@@ -54,7 +54,7 @@ app.post('/sendInfo', (req, res) => {
     let username = req.body.username;
     let score = req.body.score
     sendData(username, score);
-    res.status(200).redirect('/');
+    res.status(200).redirect('/leaderboard');
 });
 
 //SQL магии
