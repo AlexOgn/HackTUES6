@@ -25,6 +25,10 @@ const minipaths = {
     },
 }
 
+const make_carmap_house(map) {
+    
+}
+
 const tick = (map, carmap) => {
     const bigcoords = (pos) => vec_floor(vec_div(pos, 4));
     const origin_smallcoords = (pos) => vec_mul(bigcoords(pos), 4);
