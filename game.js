@@ -31,6 +31,23 @@ function get_map_element(ctx, size){
     return {x:mapx, y:mapy};
 }
 
+function symbol_to_val(symbol){
+    switch(symbol){
+        case "^":
+            return 0;
+            break;
+        case "V":
+            return 1; 
+            break;
+        case "<":
+            return 2;
+            break;
+        case ">":
+            return 3;
+            break;
+    }
+}
+
 function traffic_config(map, position){
     if (get_member(map, position.y, position.x) === undefined) {
         map[position.y] = map[position.y] || [];
@@ -54,6 +71,11 @@ function traffic_config(map, position){
     document.getElementById("down").value = map[position.y][position.x].sequence_length[1].size;
     document.getElementById("right").value = map[position.y][position.x].sequence_length[2].size;
     document.getElementById("left").value = map[position.y][position.x].sequence_length[3].size;
+
+    document.getElementById("first").selectedIndex = symbol_to_val(map[position.y][position.x].sequence_length[0].element);
+    document.getElementById("second").selectedIndex = symbol_to_val(map[position.y][position.x].sequence_length[1].element);
+    document.getElementById("third").selectedIndex = symbol_to_val(map[position.y][position.x].sequence_length[2].element);
+    document.getElementById("fourth").selectedIndex = symbol_to_val(map[position.y][position.x].sequence_length[3].element);
 }
 
 game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, cell_size)));
