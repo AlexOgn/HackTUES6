@@ -13,7 +13,7 @@ html{
     display: inline-block;
     text-align: center;
     background-color: LightGoldenRodYellow; 
-    width: 6%; 
+    width: 20%; 
     border: 4px solid LightSalmon;
     padding: 15px; 
     margin-top: 0.5%;
@@ -24,7 +24,7 @@ html{
     display: inline-block;
     text-align: center;
     background-color: LightGoldenRodYellow; 
-    width: 6%; 
+    width: 20%; 
     border: 4px solid LightSalmon;
     padding: 15px; 
     margin-top: 0.5%;
@@ -47,9 +47,9 @@ html{
 }
 
 #top_div{
-    position: relative;
+    position: inherit;
     width: 100%;
-    height: 100px;
+    height: 6.5%;
 }
 
 #game_canvas{
