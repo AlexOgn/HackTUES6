@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
@@ -12,17 +13,18 @@
     <script src="traffic.js"></script>
 
     <script type="text/javascript">
-      window.onload = function(){
-          document.getElementsByName("days")[0].innerHTML = "1234 ден";
-          document.getElementsByName("money")[0].innerHTML = "4738 лв";
-      }
+        window.onload = function () {
+            document.getElementsByName("days")[0].innerHTML = "1234 ден";
+            document.getElementsByName("money")[0].innerHTML = "4738 лв";
+        }
     </script>
     <title>Document</title>
 
-        
+
 </head>
+
 <body>
-    <div id="top_div"> 
+    <div id="top_div">
         <span id="money" name="money"></span>
         <span id="days" name="days"></span>
         <input type="image" class="arrow" src="assets/arrow_down.png" onclick="move_camera(0, -1)">
@@ -30,66 +32,74 @@
         <input type="image" class="arrow" src="assets/arrow_right.png" onclick="move_camera(-1, 0)">
         <input type="image" class="arrow" src="assets/arrow_left.png" onclick="move_camera(1, 0)">
         <input type="image" style="float: left;" class="arrow" src="assets/pause_button.png" onclick="delay = Infinity">
-        <input type="image" style="float: left;" class="arrow" src="assets/play_button.png" onclick="delay = 2">        
+        <input type="image" style="float: left;" class="arrow" src="assets/play_button.png" onclick="delay = 2">
         <input type="image" style="float: left;" class="arrow" src="assets/double_speed_button.png" onclick="delay = 1">
         <!-- <input type="image" style="float: left;" class="arrow" src="assets/skip_buttton.png"> -->
-
-        
-
     </div>
 
-    <div id="traffic_editor_div">
-      <div id="traffic_editor_main_text">
-        <p>Directions</p>
-        <p style="margin-left:64.7% ;">Time</p>
-        <br>   
-        <div id="input_container">       
-            <select id="first" class="direction">
-                <option value="^" selected>Up</option>
-                <option value="V">Down</option>
-                <option value="<">Left</option>
-                <option value=">">Right</option>
-            </select>
-            <input class="time_setter" id="up" type="number" name="up">
+    <div id="traffic_editor_div" class="traffic_editor_div">
+        <div id="traffic_editor_main_text">
+            <p>Directions</p>
+            <p style="margin-left:64.7% ;">Time</p>
             <br>
+            <div id="input_container">
+                <select id="first" class="direction">
+                    <option value="^" selected>Up</option>
+                    <option value="V">Down</option>
+                    <option value="<">Left</option>
+                    <option value=">">Right</option>
+                </select>
+                <input class="time_setter" id="up" type="number" name="up">
+                <br>
 
-            <select id="second" class="direction">
-                <option value="^">Up</option>
-                <option value="V"selected>Down</option>
-                <option value="<">Left</option>
-                <option value=">">Right</option>
-            </select>
-            <input class="time_setter" id="down" type="number" name="down">
-          <br>
+                <select id="second" class="direction">
+                    <option value="^">Up</option>
+                    <option value="V" selected>Down</option>
+                    <option value="<">Left</option>
+                    <option value=">">Right</option>
+                </select>
+                <input class="time_setter" id="down" type="number" name="down">
+                <br>
 
-            <select id="third" class="direction">
-                <option value="^">Up</option>
-                <option value="V">Down</option>
-                <option value="<"selected>Left</option>
-                <option value=">">Right</option>
-            </select>
-            <input class="time_setter" id="right" type="number" name="right">
-            <br>
+                <select id="third" class="direction">
+                    <option value="^">Up</option>
+                    <option value="V">Down</option>
+                    <option value="<" selected>Left</option>
+                    <option value=">">Right</option>
+                </select>
+                <input class="time_setter" id="right" type="number" name="right">
+                <br>
 
-            <select id="fourth" class="direction">
-                <option value="^">Up</option>
-                <option value="V">Down</option>
-                <option value="<">Left</option>
-                <option value=">"selected>Right</option>
-            </select>
-            <input class="time_setter" id="left" type="number" name="left">
-            <br>
+                <select id="fourth" class="direction">
+                    <option value="^">Up</option>
+                    <option value="V">Down</option>
+                    <option value="<">Left</option>
+                    <option value=">" selected>Right</option>
+                </select>
+                <input class="time_setter" id="left" type="number" name="left">
+                <br>
+            </div>
+            <input type="submit" id="submit" value="Submit">
         </div>
-        <input type="submit" id="submit" value="Submit">
- 
     </div>
+    <div id="game_over_div_background" class="traffic_editor_div">
+        <div id="game_over_div">
+            <form action="/sendInfo" method="POST">
+                <input type="text" class="game_over_input" name="username" placeholder="Username">
+                <br>
+                <input type="number" class="game_over_input" name="score" placeholder="Score">
+                <br>
+                <input type="submit" id="submit" style="float: right; margin-right: 5%; margin-top: 15%;">
+            </form>
+        </div>
     </div>
     <div>
         <canvas id="game_canvas">
-          <script src="game.js"></script>
-          <script src="draw.js"></script>
+            <script src="game.js"></script>
+            <script src="draw.js"></script>
         </canvas>
     </div>
     <script src="mainloop.js"></script>
 </body>
+
 </html>

@@ -46,7 +46,7 @@ html{
     float: right;
     position: inherit;
     display: inline-block;
-    margin-top: 0.3%;
+    margin-top: 0.5%;
     width: 48px;
     height: 48px;
 
@@ -59,8 +59,8 @@ html{
     margin-right: 0.35%;
     margin-top: 0.65%;
     position: inherit;
-    width: 98.55%;
-    height: 7.5%;
+    width: 98%;
+    height: 6.9%;
 }
 
 #game_canvas{
@@ -68,7 +68,7 @@ html{
     margin-left: 0.39%;
     margin-right: 0.30%;
     height: 98.55%;
-    width: 98.9%;
+    width: 98.35%;
 }
 
 *{
@@ -79,8 +79,8 @@ html{
 }
 
 #traffic_editor_div{
-    display:none;
-    z-index: 1;
+    display: none;
+    z-index: 2;
     background-color: rgba(0,0,0,0.8);
     position: absolute;
     top: 0;
@@ -91,9 +91,9 @@ html{
 
 #traffic_editor_main_text{
     position: absolute;
-    left: 35%;
+    left: 30%;
     top: 25%;
-    z-index: 2;
+    z-index: 6;
     padding: 10;
     width: 30%;
     height: 50%;
@@ -162,4 +162,26 @@ p{
     margin-top: 12.5%;
     margin-left: 18%;
     display: inline-block;
+}
+
+#game_over_div{
+    display: none;
+    position: absolute;
+    left: 35%;
+    top: 35%;
+    padding: 10;
+    width: 30%;
+    height: 30%;
+    background-color: LightSteelBlue;
+}
+
+.game_over_input{
+    position: inherit;
+    width: 50%;
+    margin-left: 12%;
+    display: inline-block;
+    margin: 5%;   
+    border-color: transparent;
+    border-bottom-color: DarkSlateGray;
+    background-color: transparent;
 }
