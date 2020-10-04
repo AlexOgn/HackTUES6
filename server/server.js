@@ -10,9 +10,9 @@ app.engine('hbs', exphbs({
     extname: '.hbs'
 }));
 
-app.use("/", express.static(__dirname + "/"));
+app.use("/", express.static(__dirname + "/../client"));
 
-app.use("/../client/style.css", express.static(__dirname + "/../client/style.css"));
+app.use("/style.css", express.static(__dirname + "/../style.css"));
 
 //използваме bodyParser
 app.use(bodyParser.urlencoded({ extended: true }))
