@@ -35,7 +35,6 @@ class Street{
             this.sequence.fill(this.sequence_length[i].element, temp, parseInt(temp) + parseInt(this.sequence_length[i].size));
             temp += parseInt(this.sequence_length[i].size);
         }  
-        console.log(this.sequence);
     }
 
     turn(){
@@ -74,7 +73,7 @@ class Car{
 let build_map = [
     ...Array.from(Array(100), () => []), 
     [...Array(100), new Building("House", [{x:102, y:102}]), new Street(), new Building("House", [{x:102, y:102}])],
-    [...Array(100), new Street(), new Street(), undefined],
+    [...Array(100), undefined, new Street(), undefined],
     [...Array(100), undefined, new Street(), new Building("Factory", [])]
 ]
 

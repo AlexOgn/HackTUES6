@@ -45,8 +45,10 @@ function traffic_config(map, position){
     document.getElementById("submit").onclick = () => {
         map[position.y][position.x].config();
         document.getElementById("traffic_editor_div").style="display: none";
+        delay = 2;
     }
-    
+
+    delay = Infinity;
     document.getElementById("traffic_editor_div").style="display:block";
     document.getElementById("up").value = map[position.y][position.x].sequence_length[0].size;
     document.getElementById("down").value = map[position.y][position.x].sequence_length[1].size;
@@ -54,7 +56,7 @@ function traffic_config(map, position){
     document.getElementById("left").value = map[position.y][position.x].sequence_length[3].size;
 }
 
-game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, 100)));
+game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, cell_size)));
 
 const add_house = (map) => {
     let next_map = clone(map);
@@ -71,11 +73,10 @@ const add_house = (map) => {
                 continue;
             }
             if (get_member(map, i, j, "type") != "Street") continue;
-            console.log(i, j);
-            push_cand(i - 2, j);
-            push_cand(i + 2, j);
-            push_cand(i, j + 2);
-            push_cand(i, i - 2);
+            push_cand(i - 4, j);
+            push_cand(i + 4, j);
+            push_cand(i, j + 4);
+            push_cand(i, i - 4);
         }
     }
     candidates.sort(() => Math.random() - 0.5);
@@ -94,11 +95,10 @@ const add_factory = (map) => {
     for(let i = 0; i < map.length; i++) {
         for(let j = 0; j < map[i].length; j++) {
             if (get_member(map, i, j, "type") != "Street") continue;
-            console.log(i, j);
-            push_cand(i - 4, j);
-            push_cand(i + 4, j);
-            push_cand(i, j + 4);
-            push_cand(i, i - 4);
+            push_cand(i - 8, j);
+            push_cand(i + 8, j);
+            push_cand(i, j + 8);
+            push_cand(i, i - 8);
         }
     }
     candidates.sort(() => Math.random() - 0.5);
