@@ -17,8 +17,8 @@ html{
     width: 10%; 
     border: 4px solid LightSalmon;
     padding: 15px; 
-    margin-top: 1.1%;
-    margin-right: 0.76%;
+    margin-top: 0.68%;
+    margin-right: 0.75%;
 }
 
 #money{
@@ -29,7 +29,7 @@ html{
     width: 10%; 
     border: 4px solid LightSalmon;
     padding: 15px; 
-    margin-top: 1.1%;
+    margin-top: 0.68%;
     margin-right: -12px;
 }
 
@@ -44,16 +44,19 @@ html{
     float: right;
     position: inherit;
     display: inline-block;
-    margin-top: 1.3%;
+    margin-top: 1%;
     width: 48px;
     height: 48px;
 
 }
 
 #top_div{
-    top: 0;
+    border: 4px solid blueviolet;
+    margin-left:0.75%;
+    margin-right: 0.75%;
+    margin-top: 0.75%;
     position: inherit;
-    width: 100%;
+    width: 98%;
     height: 10%;
 }
 
@@ -88,7 +91,7 @@ html{
     padding: 10;
     width: 30%;
     height: 50%;
-    background-color: yellowgreen;
+    /*background-color:;*/
 } 
 
 .time_setter{
