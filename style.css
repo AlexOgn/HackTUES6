@@ -68,16 +68,15 @@ html{
 }
 
 #traffic_editor_main_text{
-    position: absolute;
+    position: relative;
     left: 25%;
     top: 25%;
     z-index: 2;
     padding: 10;
-    width: 50%;
+    width: 30%;
     height: 50%;
     background-color: #fefefe;
     padding: 10;
-    width: 30%;
 } 
 
 .time_setter{
