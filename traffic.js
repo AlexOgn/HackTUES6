@@ -55,9 +55,9 @@ const make_carmap = (map, carmap) => {
         for (let j = 0; j < next_map[i].length; j++) {
             if (get_member(next_map, i, j, "type") != "House" && get_member(map, i, j, "type") != "Factory") continue;
             let dest = next_map[i][j].dests.pop();
-            if (dest === undefined) continue;
+            if (dest === undefined) {next_map[i][j].dests.push(dest);continue};
             let carpath = pathfind(next_map, {x: j, y:i}, dest);
-            if (carpath === undefined) continue;
+            if (carpath === undefined) {next_map[i][j].dests.push(dest);continue};
             let start = dir_to_member(vec_sub(carpath[0], carpath[1]));
             let end = dir_to_member(vec_sub(carpath[2], carpath[1]));
             let carpos = vec_add(vec_mul(carpath[1], 4), minipaths[start][end][0]);
@@ -132,7 +132,6 @@ const tick = (map, carmap) => {
             /// SVETOFAR
             if(!deepqual(big_next_pos, big_pos)) 
                 if (is_intersection(map, big_next_pos.y, big_next_pos.x)) {
-                    console.log(map[big_next_pos.y][big_next_pos.x].turn(), end);
                     if (map[big_next_pos.y][big_next_pos.x].turn() != dual(end)) {
                         continue;
                     }

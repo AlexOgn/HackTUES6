@@ -3,7 +3,7 @@ game_canvas.width = window.innerWidth;
 game_canvas.height = window.innerHeight;
 var game_ctx = game_canvas.getContext("2d");
 const cell_size = 100;
-game_ctx.translate(cell_size * 0, cell_size * 0);
+game_ctx.translate(cell_size * -100, cell_size * -100);
 
 const draw_street = (ctx, map, size, y, x) => {
     ctx.fillStyle = "#bbb";
@@ -88,4 +88,5 @@ const redraw = () => {
     draw_map(game_ctx, build_map, car_map, cell_size);
     window.requestAnimationFrame(redraw);
 }
+
 redraw();

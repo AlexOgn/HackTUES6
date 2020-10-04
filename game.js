@@ -1,7 +1,6 @@
 var game_mouse_x;
 var game_mouse_y;
 var money = 0;
-var is_day = false;
 
 window.addEventListener("mousemove", (e) => {
     let canvas_pos = document.getElementById("game_canvas").getBoundingClientRect();
@@ -56,3 +55,53 @@ function traffic_config(map, position){
 }
 
 game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, 100)));
+
+const add_house = (map) => {
+    let next_map = clone(map);
+    let candidates = [];
+    let factories = [];
+    const push_cand = (y, x) => {
+        if(get_member(map, y, x) !== undefined) return;
+        candidates.push({y:y, x:x});
+    }
+    for(let i = 0; i < map.length; i++) {
+        for(let j = 0; j < map[i].length; j++) {
+            if (get_member(map, i, j, "type") == "Factory") {
+                factories.push({x:j, y:i});
+                continue;
+            }
+            if (get_member(map, i, j, "type") != "Street") continue;
+            console.log(i, j);
+            push_cand(i - 2, j);
+            push_cand(i + 2, j);
+            push_cand(i, j + 2);
+            push_cand(i, i - 2);
+        }
+    }
+    candidates.sort(() => Math.random() - 0.5);
+    factories.sort(() => Math.random() - 0.5);
+    next_map[candidates[0].y][candidates[0].x] = new Building("House", [factories[0]]);
+    return next_map;
+}
+
+const add_factory = (map) => {
+    let next_map = clone(map);
+    let candidates = [];
+    const push_cand = (y, x) => {
+        if(get_member(map, y, x) !== undefined) return;
+        candidates.push({y:y, x:x});
+    }
+    for(let i = 0; i < map.length; i++) {
+        for(let j = 0; j < map[i].length; j++) {
+            if (get_member(map, i, j, "type") != "Street") continue;
+            console.log(i, j);
+            push_cand(i - 4, j);
+            push_cand(i + 4, j);
+            push_cand(i, j + 4);
+            push_cand(i, i - 4);
+        }
+    }
+    candidates.sort(() => Math.random() - 0.5);
+    next_map[candidates[0].y][candidates[0].x] = new Building("Factory", []);
+    return next_map;
+}
