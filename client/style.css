@@ -90,7 +90,6 @@ html{
 }
 
 #traffic_editor_main_text{
-    display: none;
     position: inherit;
     left: 30%;
     top: 25%;
