@@ -35,7 +35,7 @@ function traffic_config(map, position){
     if(!is_intersection(map, position.y, position.x)) return;
 
     // currying is VERY important
-    document.getElementById("submit");.onclick = () => {
+    document.getElementById("submit").onclick = () => {
         map[position.y][position.x].config();
         document.getElementById("traffic_editor_div").style="display: none";
     }
