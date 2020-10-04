@@ -102,8 +102,25 @@ input[type=number] {
 #submit{
     position: inherit;
     left: 33%;
-    top: 90%;
+    top: 85%;
     width: 33%;
+    height: 10%;
+
+    background-color: darkgray;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.8;
+    transition: 0.25s;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#submit:hover{
+    background-color: black;
+    color: white;
 }
 
 input[type=number]{
