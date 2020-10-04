@@ -1,6 +1,5 @@
 const camera_move_multiplier = 50;
 
-var game_canvas = document.getElementById("game_canvas");
 const cell_size = 50;
 
 const factory_freq = 200;
