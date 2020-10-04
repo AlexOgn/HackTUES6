@@ -9,16 +9,25 @@ html{
     width: 100%;
 }
 
-#counter{
+#days{
+    display: inline-block;
     text-align: center;
-    float:right;
     background-color: LightGoldenRodYellow; 
     width: 6%; 
     border: 4px solid LightSalmon;
-    border-radius: 10px;
     padding: 15px; 
     margin-top: 0.5%;
-    margin-right: 3px;
+    margin-right: -8px;
+}
+
+#money{
+    display: inline-block;
+    text-align: center;
+    background-color: LightGoldenRodYellow; 
+    width: 6%; 
+    border: 4px solid LightSalmon;
+    padding: 15px; 
+    margin-top: 0.5%;
 }
 
 .time_setter{
@@ -28,14 +37,13 @@ html{
     background-color: transparent;
 }
 
-#arrows{
-    float:right;
+.arrow{
+    position: inherit;
+    display: inline-block;
     margin-top: 0.75%;
-}
+    width: 48px;
+    height: 48px;
 
-#buttons{
-    float:left;
-    margin-top: 0.75%;
 }
 
 #top_div{
@@ -69,14 +77,13 @@ html{
 
 #traffic_editor_main_text{
     position: absolute;
-    left: 25%;
+    left: 35%;
     top: 25%;
     z-index: 2;
     padding: 10;
     width: 30%;
     height: 50%;
     background-color: #fefefe;
-    padding: 10;
 } 
 
 .time_setter{
@@ -105,7 +112,6 @@ input[type=number] {
     top: 85%;
     width: 33%;
     height: 10%;
-
     background-color: darkgray;
     border: none;
     color: black;
@@ -125,4 +131,8 @@ input[type=number] {
 
 input[type=number]{
     -moz-appearance: textfield;
+}
+#input_container{
+    position: relative;
+    margin-top: 4%;
 }

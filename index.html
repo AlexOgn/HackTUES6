@@ -22,53 +22,51 @@
 </head>
 <body>
     <div id="top_div">
-    <div id= "counter" name="money"></div>
-    <div id= "counter" name="days"></div>
-    
-    <div id="arrows">
-          <input type="image" src="assets/arrow_right.png" width="48" height="48" onclick="move_camera(1, 0)">
-          <input type="image" src="assets/arrow_left.png" width="48" height="48" onclick="move_camera(-1, 0)">
-          <input type="image" src="assets/arrow_up.png" width="48" height="48" onclick="move_camera(0, -1)">
-          <input type="image" src="assets/arrow_down.png" width="48" height="48" onclick="move_camera(0, 1)">
-      </div>
+        <input type="image" class="arrow" src="assets/pause_button.png">
+        <input type="image" class="arrow" src="assets/play_button.png">
+        <input type="image" class="arrow" src="assets/double_speed_button.png">
+        <input type="image" class="arrow" src="assets/skip_buttton.png" style="margin-right: 55%;">
 
-      <div id="buttons">
-          <input type="image" class="arrow" src="assets/pause_button.png" width="48" height="48">
-          <input type="image" class="arrow" src="assets/play_button.png" width="48" height="48">
-          <input type="image" class="arrow" src="assets/double_speed_button.png" width="48" height="48">
-          <input type="image" class="arrow" src="assets/skip_buttton.png" width="48" height="48">
-      </div>
+        <input type="image" class="arrow" src="assets/arrow_left.png" onclick="move_camera(-1, 0)">
+        <input type="image" class="arrow" src="assets/arrow_right.png" onclick="move_camera(1, 0)">
+        <input type="image" class="arrow" src="assets/arrow_up.png" onclick="move_camera(0, -1)">
+        <input type="image" class="arrow" src="assets/arrow_down.png" onclick="move_camera(0, 1)">
+
+        <span id="days" name="days"></span>
+        <span id="money" name="money"></span>
 
     </div>
 
     <div id="traffic_editor_div">
       <div id="traffic_editor_main_text">
-        <li class="direction">
-            up
-        </li>
-        <input class="time_setter" id="up" type="text" name="up">
-        <br>
+        <div id="input_container">            
+            <li class="direction">
+                Up
+            </li>
+            <input class="time_setter" id="up" type="text" name="up">
+            <br>
 
-        <li class="direction">
-            down
-        </li>
-        <input class="time_setter" id="down" type="number" name="down">
-        <br>
+            <li class="direction">
+                Down
+            </li>
+            <input class="time_setter" id="down" type="number" name="down">
+          <br>
 
-        <li class="direction">
-            left
-        </li>
-        <input class="time_setter" id="right" type="number" name="right">
-        <br>
+          <li class="direction">
+                Left
+            </li>
+            <input class="time_setter" id="right" type="number" name="right">
+            <br>
 
-        <li class="direction">
-            right
-        </li>
-        <input class="time_setter" id="left" type="number" name="left">
-        <br>
-
+            <li class="direction">
+                Right
+            </li>
+            <input class="time_setter" id="left" type="number" name="left">
+            <br>
+        </div>
         <input type="submit" id="submit" value="Submit">
-      </div>
+ 
+    </div>
     </div>
     <div style="height: 100%;">
         <canvas id="game_canvas">
