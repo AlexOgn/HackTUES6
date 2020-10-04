@@ -46,7 +46,7 @@ html{
     float: right;
     position: inherit;
     display: inline-block;
-    margin-top: 0.5%;
+    margin-top: 0.3%;
     width: 48px;
     height: 48px;
 
@@ -85,8 +85,8 @@ html{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
 }
 
 #traffic_editor_main_text{
@@ -107,6 +107,9 @@ html{
 }
 
 .direction{
+    background-color:  rgb(96, 109, 122);
+    border: none;
+    color: WhiteSmoke;
     position: inherit;
     width: 20%;
     margin-left: 12%;
@@ -148,7 +151,15 @@ input[type=number]{
 }
 #input_container{
     position: relative;
-    margin-top: 4%;
+    margin-top: 20%;
     margin-left: 4%;
     margin-right: 4%;
+}
+
+p{
+    position: inherit;
+    width: 20%;
+    margin-top: 12.5%;
+    margin-left: 16.5%;
+    display: inline-block;
 }
