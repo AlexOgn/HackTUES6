@@ -97,26 +97,83 @@ function get_map_element(ctx, size){
     return {x:mapx, y:mapy};
 }
 
-function swap_selected_values(first_element, second_element){
-    first = first_element.selectedIndex;
-    second = second_element.selectedIndex;
-    first_element.selectedIndex = second;
-    second_element.selectedIndex = first;
-}
-
 function check_other_answers(inp){
     switch(inp){
     case document.getElementById("first"):
-        
+        switch(inp.selectedIndex){
+            case document.getElementById("second").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("second").selectedIndex;
+                document.getElementById("second").selectedIndex = temp;  
+                break;
+            case document.getElementById("third").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("third").selectedIndex;
+                document.getElementById("second").selectedIndex = temp; 
+                break;
+            case document.getElementById("fourth").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("fourth").selectedIndex;
+                document.getElementById("second").selectedIndex = temp; 
+                break;
+        }
         break;
     case document.getElementById("second"):
-        
+        switch(inp.selectedIndex){
+            case document.getElementById("second").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("second").selectedIndex;
+                document.getElementById("second").selectedIndex = temp;  
+                break;
+            case document.getElementById("third").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("third").selectedIndex;
+                document.getElementById("second").selectedIndex = temp; 
+                break;
+            case document.getElementById("fourth").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("fourth").selectedIndex;
+                document.getElementById("second").selectedIndex = temp; 
+                break;
+        }
         break;
     case document.getElementById("third"):
-        
+        switch(inp.selectedIndex){
+            case document.getElementById("second").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("second").selectedIndex;
+                document.getElementById("second").selectedIndex = temp;  
+                break;
+            case document.getElementById("third").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("third").selectedIndex;
+                document.getElementById("second").selectedIndex = temp; 
+                break;
+            case document.getElementById("fourth").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("fourth").selectedIndex;
+                document.getElementById("second").selectedIndex = temp; 
+                break;
+        }
         break;
     case document.getElementById("fourth"):
-        
+        switch(inp.selectedIndex){
+            case document.getElementById("second").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("second").selectedIndex;
+                document.getElementById("second").selectedIndex = temp;  
+                break;
+            case document.getElementById("third").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("third").selectedIndex;
+                document.getElementById("second").selectedIndex = temp; 
+                break;
+            case document.getElementById("fourth").selectedIndex:
+                temp = inp.selectedIndex;
+                inp.selectedIndex = document.getElementById("fourth").selectedIndex;
+                document.getElementById("second").selectedIndex = temp; 
+                break;
+        }
         break;
     }
 }
