@@ -83,11 +83,12 @@ html{
     padding: 10;
     width: 30%;
     height: 50%;
-    background-color: #fefefe;
+    background-color: yellowgreen;
 } 
 
 .time_setter{
     position: relative;
+    text-align: center;
     left: 30%;
 }
 
