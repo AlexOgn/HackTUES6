@@ -50,7 +50,7 @@ const draw_map = (ctx, build_map, car_map, size) => {
         for(let x = 0; x < build_map[y].length; x++) {
             ctx.save();
             ctx.translate(x*size, y*size);
-            ctx.fillStyle = "#0fa";
+            ctx.fillStyle = "#8acd60";//rgb(164, 245, 59)
             ctx.fillRect(0, 0, size, size);
             if (get_member(build_map, y, x) === undefined) {ctx.restore(); continue;}
             draw_street(ctx, build_map, size, y, x);
