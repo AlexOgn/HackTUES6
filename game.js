@@ -1,5 +1,6 @@
 var game_mouse_x;
 var game_mouse_y;
+var is_day = false;
 
 window.addEventListener("mousemove", (e) => {
     let canvas_pos = document.getElementById("game_canvas").getBoundingClientRect();
@@ -34,18 +35,18 @@ function traffic_config(map, position){
     if(!is_intersection(map, position.y, position.x)) return;
 
     // currying is VERY important
-    submit.onclick = () => {
+    document.getElementById("submit");.onclick = () => {
         map[position.y][position.x].config();
         document.getElementById("traffic_editor_div").style="display: none";
     }
     
     document.getElementById("traffic_editor_div").style="display:block";
-    document.getElementById("up").value = map[position.y][position.x].sequence_length[0];
-    document.getElementById("down").value = map[position.y][position.x].sequence_length[1];
-    document.getElementById("right").value = map[position.y][position.x].sequence_length[2];
-    document.getElementById("left").value = map[position.y][position.x].sequence_length[3];
+    document.getElementById("up").value = map[position.y][position.x].sequence_length[0].size;
+    document.getElementById("down").value = map[position.y][position.x].sequence_length[1].size;
+    document.getElementById("right").value = map[position.y][position.x].sequence_length[2].size;
+    document.getElementById("left").value = map[position.y][position.x].sequence_length[3].size;
 }
 
-game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, 100)));
-
-let submit = document.getElementById("submit");
+if(is_day == false){
+    game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, 100)));
+}
