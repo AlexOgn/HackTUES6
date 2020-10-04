@@ -41,7 +41,7 @@ function getData(res) {
 
 //main page
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + "/../index.html");
+    res.sendFile(path.resolve('../client/index.html'));
 });
 
 //leaderboard page
