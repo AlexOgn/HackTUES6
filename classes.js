@@ -7,14 +7,6 @@ class Street{
         //the number of people we let to cross the road in the directions: "^", "V", ">", "<"
     }
 
-/*
-    mouse up -> get x and y on the game map
-    x = (mouseX - size_of_left_bar)/game_map_[X]_width
-    y = (mouseY - size_of_top_bar)/game_map_[Y]_height
-
-    game_map[y][x].config()
-
-*/
     config(){
         let top = document.getElementsByName("up")[0].value;
         let bottom = document.getElementsByName("down")[0].value;
@@ -51,7 +43,7 @@ class Car{
 
 let build_map = [
     [new House(), new Street(), new House()],
-    [new Street(), new Street(), undefined],
+    [undefined, new Street(), undefined],
     [undefined, new Street(), new Workplace()]
 ]
 
