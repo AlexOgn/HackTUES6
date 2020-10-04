@@ -29,6 +29,17 @@ const minipaths = {
     },
 }
 
+const is_intersection = (map, y, x) => {
+    if(get_member(map, y, x, "type") !== "Street") return false;
+    const can_connect = (diry, dirx) => (get_member(map, y + diry, x + dirx) !== undefined);
+    let connections = 0;
+    if (can_connect( 0,  1)) connections++;
+    if (can_connect( 0, -1)) connections++;
+    if (can_connect( 1,  0)) connections++;
+    if (can_connect(-1,  0)) connections++;
+    return connections >= 3;
+}
+
 const make_carmap = (map, carmap) => {
     const bigcoords = (pos) => vec_floor(vec_div(pos, 4));
     const origin_smallcoords = (pos) => vec_mul(bigcoords(pos), 4);
@@ -67,7 +78,7 @@ const make_carmap = (map, carmap) => {
             let carpath = pathfind(next_map, {x: j, y:i}, dest);
             if (carpath === undefined) {
                 next_map[i][j].dests.push(dest);
-                change_money(-1);
+                change_money(not_moving_cost);
                 continue;
             }
             let start = dir_to_member(vec_sub(carpath[0], carpath[1]));
@@ -75,7 +86,7 @@ const make_carmap = (map, carmap) => {
             let carpos = vec_add(vec_mul(carpath[1], 4), minipaths[start][end][0]);
             if (get_member(next_carmap, carpos.y, carpos.x) !== undefined) {
                 next_map[i][j].dests.push(dest);
-                change_money(-1);
+                change_money(not_moving_cost);
                 continue;
             }
             /// SVETOFAR
@@ -83,7 +94,7 @@ const make_carmap = (map, carmap) => {
             if (is_intersection(map, big_carpos.y, big_carpos.x)) {
                 if(map[big_carpos.y][big_carpos.x].turn() != start) {
                     next_map[i][j].dests.push(dest);
-                    change_money(-1);
+                    change_money(not_moving_cost);
                     continue;
                 }
             }
@@ -148,18 +159,18 @@ const tick = (map, carmap) => {
             if(!deepqual(big_next_pos, big_pos)) 
                 if (is_intersection(map, big_next_pos.y, big_next_pos.x)) {
                     if (map[big_next_pos.y][big_next_pos.x].turn() != dual(end)) {
-                        change_money(-1);
+                        change_money(not_moving_cost);
                         continue;
                     }
                 }
 
             if ((carmap[next_pos.y][next_pos.x] || next_carmap[next_pos.y][next_pos.x]) !== undefined) {
-                change_money(-1);
+                change_money(not_moving_cost);
                 continue;
             }
             if (deepqual(bigcoords(next_pos), last(carmap[i][j]))) {
                 next_map[bigcoords(next_pos).y][bigcoords(next_pos).x].garage.push(clone(carmap[i][j][0]));
-                change_money(5);
+                change_money(destination_prize);
             } else {
                 next_carmap[next_pos.y][next_pos.x] = clone(carmap[i][j]);
             }

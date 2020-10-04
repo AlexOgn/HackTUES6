@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="load-assets.js"></script>
+    <script src="settings.js"></script>
     <script src="util.js"></script>
+    <script src="die.js"></script>
     <script src="money.js"></script>
     <script src="classes.js"></script>
     <script src="pathfind.js"></script>
@@ -32,7 +34,7 @@
         <!-- <input type="image" style="float: left;" class="arrow" src="assets/skip_buttton.png"> -->
     </div>
 
-    <div id="traffic_editor_div" class="traffic_editor_div">
+    <div id="traffic_editor_div">
         <div id="traffic_editor_main_text">
             <p>Directions</p>
             <p style="margin-left:64.7% ;">Time</p>
@@ -77,7 +79,7 @@
             <input type="submit" id="submit" value="Submit">
         </div>
     </div>
-    <div id="game_over_div_background" class="traffic_editor_div">
+    <div id="game_over_div_background">
         <div id="game_over_div">
             <form action="/sendInfo" method="POST">
                 <input type="text" class="game_over_input" name="username" placeholder="Username">
@@ -90,8 +92,8 @@
     </div>
     <div>
         <canvas id="game_canvas">
-            <script src="game.js"></script>
             <script src="draw.js"></script>
+            <script src="game.js"></script>
         </canvas>
     </div>
     <script src="mainloop.js"></script>
