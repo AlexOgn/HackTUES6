@@ -105,7 +105,7 @@ const tick = (map, carmap) => {
         switch (dir) {
         case "left": return "right";
         case "up": return "down";
-        case "right": return "light";
+        case "right": return "left";
         case "down": return "up";
         }
     }
@@ -125,18 +125,19 @@ const tick = (map, carmap) => {
             let minipath_curr = find(rel_smallcoords({x:j, y:i}), minipath);
             let next_pos = vec_add(minipath[minipath_curr + 1], origin_smallcoords({x:j, y:i}));
             let big_next_pos = bigcoords(next_pos);
-            
+
             carmap[next_pos.y] = carmap[next_pos.y] || [];
             next_carmap[next_pos.y] = next_carmap[next_pos.y] || [];
 
             /// SVETOFAR
             if(!deepqual(big_next_pos, big_pos)) 
                 if (is_intersection(map, big_next_pos.y, big_next_pos.x)) {
-                    //console.log(map[big_next_pos.y][big_next_pos.x].turn());
+                    console.log(map[big_next_pos.y][big_next_pos.x].turn(), end);
                     if (map[big_next_pos.y][big_next_pos.x].turn() != dual(end)) {
                         continue;
                     }
                 }
+
             if ((carmap[next_pos.y][next_pos.x] || next_carmap[next_pos.y][next_pos.x]) !== undefined) continue;
             if (deepqual(bigcoords(next_pos), last(carmap[i][j]))) {
                 next_map[bigcoords(next_pos).y][bigcoords(next_pos).x].garage.push(clone(carmap[i][j][0]));

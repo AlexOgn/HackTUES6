@@ -2,6 +2,8 @@ var game_canvas = document.getElementById("game_canvas");
 game_canvas.width = window.innerWidth;
 game_canvas.height = window.innerHeight;
 var game_ctx = game_canvas.getContext("2d");
+const cell_size = 100;
+game_ctx.translate(cell_size * 0, cell_size * 0);
 
 const draw_street = (ctx, map, size, y, x) => {
     ctx.fillStyle = "#bbb";
@@ -83,7 +85,7 @@ const redraw = () => {
     game_ctx.fillStyle = "#8acd60";
     game_ctx.fillRect(0, 0, game_canvas.width, game_canvas.height);
     game_ctx.restore();
-    draw_map(game_ctx, build_map, car_map, 100);
+    draw_map(game_ctx, build_map, car_map, cell_size);
     window.requestAnimationFrame(redraw);
 }
 redraw();
