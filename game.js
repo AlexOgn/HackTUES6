@@ -47,6 +47,4 @@ function traffic_config(map, position){
     document.getElementById("left").value = map[position.y][position.x].sequence_length[3].size;
 }
 
-if(is_day == false){
-    game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, 100)));
-}
+game_canvas.addEventListener('click', () => traffic_config(build_map, get_map_element(game_ctx, 100)));

@@ -35,7 +35,6 @@ class Street{
             this.sequence.fill(this.sequence_length[i].element, temp, parseInt(temp) + parseInt(this.sequence_length[i].size));
             temp += parseInt(this.sequence_length[i].size);
         }  
-        console.log(this.sequence);
     }
 
     turn(){
