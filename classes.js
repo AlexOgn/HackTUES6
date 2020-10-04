@@ -3,7 +3,8 @@
 class Street{
     constructor(){
         this.type = "Street";
-        this.sequence = [1, 1, 1, 1]; 
+        this.sequence_length = [1, 1, 1, 1]; 
+        this.sequence = ["^", "V", ">", "<"];
         //the number of people we let to cross the road in the directions: "^", "V", ">", "<"
     }
 
@@ -12,11 +13,37 @@ class Street{
         let bottom = document.getElementsByName("down")[0].value;
         let right = document.getElementsByName("right")[0].value;
         let left = document.getElementsByName("left")[0].value;
+        let total = parseInt(top) + parseInt(bottom) + parseInt(right) + parseInt(left);
 
-        this.sequence[0] = top;
-        this.sequence[1] = bottom;
-        this.sequence[2] = right;
-        this.sequence[3] = left;
+        this.sequence_length[0] = top;
+        this.sequence_length[1] = bottom;
+        this.sequence_length[2] = right;
+        this.sequence_length[3] = left;
+        
+        this.sequence.length = total;
+        
+        this.sequence.fill("^", 0, top);
+        this.sequence.fill("V", top, parseInt(top)+parseInt(bottom));
+        this.sequence.fill(">", parseInt(top)+parseInt(bottom), parseInt(total)-parseInt(left));
+        this.sequence.fill("<", parseInt(total)-parseInt(left), total);   
+    }
+
+    turn(tick_count){
+        tick_count %= this.sequence.length; 
+        switch(this.sequence[tick_count]){
+            case "^":
+                return "up";
+                break;
+            case "V":
+                return "down";
+                break;
+            case ">":
+                return "right";
+                break;
+            case "<":
+                return "left";
+                break;
+        }
     }
 }
 
