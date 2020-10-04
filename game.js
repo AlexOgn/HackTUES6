@@ -97,89 +97,11 @@ function get_map_element(ctx, size){
     return {x:mapx, y:mapy};
 }
 
-let submit = document.getElementById("submit");
-
-let first = document.getElementById("first");
-let second = document.getElementById("second");
-let third = document.getElementById("third");
-let fourth = document.getElementById("fourth");
-
-first.onchange = () =>{
-    temp = first.selectedIndex;
-    console.log(temp);
-    switch(first.selectedIndex){
-        case second.selectedIndex:
-            console.log("we're in");
-            first.selectedIndex = second.selectedIndex;
-            second.selectedIndex = temp;
-            break;
-        case third.selectedIndex:
-            first.selectedIndex = third.selectedIndex;
-            third.selectedIndex = temp;
-            break;
-        case fourth.selectedIndex:
-            first.selectedIndex = fourth.selectedIndex;
-            fourth.selectedIndex = temp;
-            break;
-    }
-}
-second.onchange = () =>{
-    temp = second.selectedIndex;
-    switch(second.selectedIndex){
-        case first.selectedIndex:
-            second.selectedIndex = first.selectedIndex;
-            first.selectedIndex = temp;
-            break;
-        case third.selectedIndex:
-            second.selectedIndex = third.selectedIndex;
-            third.selectedIndex = temp;
-            break;
-        case fourth.selectedIndex:
-            second.selectedIndex = fourth.selectedIndex;
-            fourth.selectedIndex = temp;
-            break;
-    }
-}
-third.onchange = () =>{
-    temp = third.selectedIndex;
-    switch(first.selectedIndex){
-        case second.selectedIndex:
-            third.selectedIndex = second.selectedIndex;
-            second.selectedIndex = temp;
-            break;
-        case first.selectedIndex:
-            third.selectedIndex = first.selectedIndex;
-            first.selectedIndex = temp;
-            break;
-        case fourth.selectedIndex:
-            third.selectedIndex = fourth.selectedIndex;
-            fourth.selectedIndex = temp;
-            break;
-    }
-}
-fourth.onchange = () =>{
-    temp = fourth.selectedIndex;
-    switch(first.selectedIndex){
-        case second.selectedIndex:
-            fourth.selectedIndex = second.selectedIndex;
-            second.selectedIndex = temp;
-            break;
-        case third.selectedIndex:
-            fourth.selectedIndex = third.selectedIndex;
-            third.selectedIndex = temp;
-            break;
-        case first.selectedIndex:
-            fourth.selectedIndex = first.selectedIndex;
-            first.selectedIndex = temp;
-            break;
-    }
-}
-
 function traffic_config(map, position){
     if(!is_intersection(map, position.y, position.x)) return;
 
     // currying is VERY important
-    submit.onclick = () => {
+    document.getElementById("submit");.onclick = () => {
         map[position.y][position.x].config();
         document.getElementById("traffic_editor_div").style="display: none";
     }
