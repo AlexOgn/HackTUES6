@@ -25,8 +25,27 @@ const minipaths = {
     },
 }
 
-const make_carmap_house(map) {
-    
+const make_carmap_from_houses = (map) => {
+    const bigcoords = (pos) => vec_floor(vec_div(pos, 4));
+    const origin_smallcoords = (pos) => vec_mul(bigcoords(pos), 4);
+    const rel_smallcoords = (pos) => vec_sub(pos, origin_smallcoords(pos));
+    const dir_to_member = (v) => {
+        if(deepqual(v, {x:-1, y:0})) return "left";
+        if(deepqual(v, {x:0, y:-1})) return "up";
+        if(deepqual(v, {x:1, y:0})) return "right";
+        if(deepqual(v, {x:0, y:1})) return "down";
+    }
+    carmap = [];
+    for (let i = 0; i < map.length.i++; i++) {
+        for (let j = 0; j < map[i].length; j++) {
+            if (map[i][j].type == "House") {
+                let carpath = pathfind(map, {x: j, y:i}, map[i][j].work_coords);
+                let start = dir_to_member(vec_sub(carmap[i][j][0], carmap[i][j][1]));
+                let end = dir_to_member(vec_sub(carmap[i][j][2], carmap[i][j][1]));
+                let carpos = vec_add({x:j * 4, y: i * 4}, minipaths[start][end][0])
+            }
+        }
+    }
 }
 
 const tick = (map, carmap) => {
