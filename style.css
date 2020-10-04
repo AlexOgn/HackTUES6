@@ -9,36 +9,36 @@ html{
     width: 100%;
 }
 
-#days{
-    position: inherit;
-    float: right;
-    display: inline-block;
-    text-align: center;
-    background-color: LightGoldenRodYellow; 
-    width: 10%; 
-    border: 4px solid LightSalmon;
-    padding: 15px; 
-    margin-top: 0.68%;
-    margin-right: 0.75%;
-}
-
 #money{
     position: inherit;
     float: right;
     display: inline-block;
     text-align: center;
-    background-color: LightGoldenRodYellow; 
+    background-color: #E6E6FA; 
     width: 10%; 
-    border: 4px solid LightSalmon;
-    padding: 15px; 
-    margin-top: 0.68%;
-    margin-right: -12px;
+    border: 4px solid #5B5EA6;
+    padding: 0.8%; 
+    margin-top: 0.20%;
+    margin-right: 12px;
+}
+
+#days{
+    position: inherit;
+    float: right;
+    display: inline-block;
+    text-align: center;
+    background-color: #E6E6FA; 
+    width: 10%; 
+    border: 4px solid #5B5EA6;
+    padding: 0.8%; 
+    margin-top: 0.20%;
+    margin-right: 0.75%;
 }
 
 .time_setter{
     margin: 10px;   
     border-color: transparent;
-    border-bottom-color: magenta;
+    border-bottom-color: DarkSlateGray;
     background-color: transparent;
 }
 
@@ -46,25 +46,29 @@ html{
     float: right;
     position: inherit;
     display: inline-block;
-    margin-top: 1%;
+    margin-top: 0.5%;
     width: 48px;
     height: 48px;
 
 }
 
 #top_div{
-    border: 4px solid blueviolet;
-    margin-top: 0.75%;
+    border: 4px solid #5B5EA6;
+    background-color:#98B4D4; 
+    margin-left:0.35%;
+    margin-right: 0.35%;
+    margin-top: 0.65%;
     position: inherit;
     width: 98.55%;
-    height: 8.5%;
+    height: 7.5%;
 }
 
 #game_canvas{
-    left: 0;
     position: relative;
+    margin-left: 0.39%;
+    margin-right: 0.30%;
     height: 98.55%;
-    width: 98.9%;
+    width: 99.03%;
 }
 
 *{
@@ -93,7 +97,7 @@ html{
     padding: 10;
     width: 30%;
     height: 50%;
-    background-color:white;
+    background-color: LightSteelBlue;
 } 
 
 .time_setter{
@@ -122,9 +126,9 @@ input[type=number] {
     top: 85%;
     width: 33%;
     height: 10%;
-    background-color: darkgray;
+    background-color:DarkSlateGrey;
     border: none;
-    color: black;
+    color: WhiteSmoke;
     text-align: center;
     font-size: 16px;
     margin: 4px 2px;
@@ -135,8 +139,8 @@ input[type=number] {
 }
 
 #submit:hover{
-    background-color: black;
-    color: white;
+    background-color: WhiteSmoke;
+    color:DarkSlateGrey;
 }
 
 input[type=number]{

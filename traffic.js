@@ -34,8 +34,17 @@ const make_carmap = (map, carmap) => {
         if(deepqual(v, {x:0, y:-1})) return "up";
         if(deepqual(v, {x:1, y:0})) return "right";
         if(deepqual(v, {x:0, y:1})) return "down";
+    }    
+    const dual = (dir) => {
+        switch (dir) {
+        case "left": return "right";
+        case "up": return "down";
+        case "right": return "light";
+        case "down": return "up";
+        }
     }
 
+    
     next_map = clone(map);
     next_carmap = clone(map);
     for(let i = 0 ; i < map.length * 4; i++) {
@@ -52,13 +61,33 @@ const make_carmap = (map, carmap) => {
             let start = dir_to_member(vec_sub(carpath[0], carpath[1]));
             let end = dir_to_member(vec_sub(carpath[2], carpath[1]));
             let carpos = vec_add(vec_mul(carpath[1], 4), minipaths[start][end][0]);
-            if(get_member(next_carmap, carpos.y, carpos.x) !== undefined) 
+            if (get_member(next_carmap, carpos.y, carpos.x) !== undefined) {
                 next_map[i][j].dests.push(dest);
-            else
-                next_carmap[carpos.y][carpos.x] = carpath;
+                continue;
+            }
+            /// SVETOFAR
+            let big_carpos = bigcoords(carpos);
+            if (is_intersection(map, big_carpos.y, big_carpos.x)) {
+                if(map[big_carpos.y][big_carpos.x].turn() != start) {
+                    next_map[i][j].dests.push(dest);
+                    continue;
+                }
+            }
+            next_carmap[carpos.y][carpos.x] = carpath;
         }
     }
     return [next_map, next_carmap];
+}
+
+const inc_lights = (map) => {
+    next_map = clone(map);
+    for (let i = 0; i < next_map.length; i++) {
+        for (let j = 0; j < next_map[i].length; j++) {
+            if(get_member(next_map, i, j, "type") == "Street")
+                next_map[i][j].tick++;
+        }
+    }
+    return next_map;
 }
 
 const tick = (map, carmap) => {
@@ -71,7 +100,16 @@ const tick = (map, carmap) => {
         if(deepqual(v, {x:0, y:-1})) return "up";
         if(deepqual(v, {x:1, y:0})) return "right";
         if(deepqual(v, {x:0, y:1})) return "down";
+    }    
+    const dual = (dir) => {
+        switch (dir) {
+        case "left": return "right";
+        case "up": return "down";
+        case "right": return "light";
+        case "down": return "up";
+        }
     }
+
 
     let next_map = clone(map);
     let next_carmap = clone(carmap);
@@ -79,28 +117,36 @@ const tick = (map, carmap) => {
     for (let i = 0; i < carmap.length; i++) {
         for (let j = 0; j < carmap[i].length; j++) {
             if(carmap[i][j] === undefined) continue;
+            let big_pos = bigcoords({x: j, y:i});
             let bigpath_curr = find(bigcoords({x: j, y: i}), carmap[i][j]);
             let start = dir_to_member(vec_sub(carmap[i][j][bigpath_curr - 1], carmap[i][j][bigpath_curr]));
             let end = dir_to_member(vec_sub(carmap[i][j][bigpath_curr + 1], carmap[i][j][bigpath_curr]));
             let minipath = minipaths[start][end];
             let minipath_curr = find(rel_smallcoords({x:j, y:i}), minipath);
             let next_pos = vec_add(minipath[minipath_curr + 1], origin_smallcoords({x:j, y:i}));
-
+            let big_next_pos = bigcoords(next_pos);
+            
             carmap[next_pos.y] = carmap[next_pos.y] || [];
             next_carmap[next_pos.y] = next_carmap[next_pos.y] || [];
 
-            if ((carmap[next_pos.y][next_pos.x] || next_carmap[next_pos.y][next_pos.x]) === undefined) {
-                //console.log(carmap[i][j], bigcoords(next_pos));
-                if (deepqual(bigcoords(next_pos), last(carmap[i][j]))) {
-                    next_map[bigcoords(next_pos).y][bigcoords(next_pos).x].garage.push(clone(carmap[i][j][0]));
-                } else {
-                    next_carmap[next_pos.y][next_pos.x] = clone(carmap[i][j]);
+            /// SVETOFAR
+            if(!deepqual(big_next_pos, big_pos)) 
+                if (is_intersection(map, big_next_pos.y, big_next_pos.x)) {
+                    //console.log(map[big_next_pos.y][big_next_pos.x].turn());
+                    if (map[big_next_pos.y][big_next_pos.x].turn() != dual(end)) {
+                        continue;
+                    }
                 }
-                next_carmap[i][j] = undefined;
-
+            if ((carmap[next_pos.y][next_pos.x] || next_carmap[next_pos.y][next_pos.x]) !== undefined) continue;
+            if (deepqual(bigcoords(next_pos), last(carmap[i][j]))) {
+                next_map[bigcoords(next_pos).y][bigcoords(next_pos).x].garage.push(clone(carmap[i][j][0]));
+            } else {
+                next_carmap[next_pos.y][next_pos.x] = clone(carmap[i][j]);
             }
+            next_carmap[i][j] = undefined;
         }
     }
+    next_map = inc_lights(next_map);
     return [next_map, next_carmap]; 
 };
 

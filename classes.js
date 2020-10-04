@@ -7,6 +7,7 @@ class Street{
     //every array holds the order of the directions (being between 1-4) and the number of people passed
         console.log(this.sequence_length);
         this.sequence = ["^", "V", ">", "<"];
+        this.tick = 0;
         //the number of people we let to cross the road in the directions: "^", "V", ">", "<"
     }
 
@@ -30,8 +31,8 @@ class Street{
         this.sequence.fill("<", parseInt(total)-parseInt(left), total);   
     }
 
-    turn(tick_count){
-        tick_count %= this.sequence.length; 
+    turn(){
+        let tick_count = this.tick % this.sequence.length; 
         switch(this.sequence[tick_count]){
             case "^":
                 return "up";
