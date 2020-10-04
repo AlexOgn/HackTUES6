@@ -90,10 +90,10 @@ html{
 }
 
 #traffic_editor_main_text{
-    position: absolute;
+    display: none;
+    position: inherit;
     left: 30%;
     top: 25%;
-    z-index: 6;
     padding: 10;
     width: 30%;
     height: 50%;
@@ -164,8 +164,19 @@ p{
     display: inline-block;
 }
 
-#game_over_div{
+#game_over_div_background{
     display: none;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 110%;
+}
+
+#game_over_div{
+    z-index: 6;
     position: absolute;
     left: 35%;
     top: 35%;
