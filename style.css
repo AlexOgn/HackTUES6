@@ -24,7 +24,7 @@ html{
 .time_setter{
     margin: 10px;   
     border-color: transparent;
-    border-bottom-color: magenta;
+    border-bottom-color: black;
     background-color: transparent;
 }
 
@@ -75,7 +75,7 @@ html{
     padding: 10;
     width: 30%;
     height: 50%;
-    background-color: #fefefe;
+    background: linear-gradient(to bottom, coral 0%, LemonChiffon 100%);
     padding: 10;
 } 
 
