@@ -1,11 +1,42 @@
 <!DOCTYPE html>
+
 <html>
   <head>
+      <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        th{
+          border: 1px solid #000000;
+          background-color: #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        td{
+          background-color: #ffffff;
+          border: 1px solid #000000;
+          text-align: left;
+          padding: 8px;
+        }
+      </style>
       <title>Svetofar! Leaderboard</title>
     </head>
   <body>
+    <table>
+      <tr>
+        <th>Username</th>
+        <th>Score</th>
+      </tr>
     {{#each data}}
-        <p>{{this.username}} | {{this.score}}</p>
+      <tr>
+        <td>{{this.username}}</td>
+        <td>{{this.score}}</td>
+      </tr>        
     {{/each}}
+    </table>
   </body>
 </html>
